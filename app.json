@@ -1,8 +1,8 @@
 {
   "pages": [
-    "pages/vip/detail/index",
     "pages/vip/register/index",
-    "pages/vip/ss"
+    "pages/vip/register-success/index",
+    "pages/vip/welfare/index"
   ],
   "window": {
     "backgroundTextStyle": "light",

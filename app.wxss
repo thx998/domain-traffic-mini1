@@ -24,3 +24,8 @@
   background: linear-gradient(270deg, #FF6430 0%, #FF594A 100%);
   color: #fff;
 }
+
+button.btn.active[disabled]{
+  color: #fff !important;
+  opacity: 0.5;
+}

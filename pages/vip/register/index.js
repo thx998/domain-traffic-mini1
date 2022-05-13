@@ -49,7 +49,7 @@ Page({
     }
     // jump to vip page
     wx.reLaunch({
-      url: '../detail/index',
+      url: '../register-success/index',
     })
   }
 })

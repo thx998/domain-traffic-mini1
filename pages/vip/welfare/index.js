@@ -1,32 +1,18 @@
-// pages/vip/detail/index.js
+// pages/vip/welfare/index.js
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    time: 3,
+
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad(options) {
-    const _this = this;
-    const timer = setInterval(function() {
-      _this.setData({
-        time: _this.data.time - 1
-      })
-      if (_this.data.time<= 0) {
-        clearInterval(timer);
-      }
-    }, 1000)
-  },
-  handleNav() {
-    // 跳转到福利页
-    wx.reLaunch({
-      url: '../detail/index',
-    })
+
   },
 
   /**
