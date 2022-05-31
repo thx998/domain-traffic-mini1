@@ -1,0 +1,8 @@
+/* pages/card/index.wxss */
+.userinfo {
+  display: flex;
+}
+.userinfo-avatar{
+  width: 60px;
+  height: 60px;
+}

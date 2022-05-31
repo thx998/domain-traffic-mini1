@@ -1,0 +1,16 @@
+<!--pages/card/index.wxml-->
+<view class="container">
+  <view class="userinfo">
+    <block wx:if="{{ canIUseOpenData }}">
+      <view class="userinfo-avatar" bindtap="bindViewTap">
+        <open-data type="userAvatarUrl"></open-data>
+      </view>
+      <view>
+        <open-data type="userNickName"></open-data>
+      </view>
+    </block>
+  </view>
+  <view>
+    <Button>卡包</Button>
+  </view>
+</view>

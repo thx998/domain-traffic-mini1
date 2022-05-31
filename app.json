@@ -1,5 +1,6 @@
 {
   "pages": [
+    "pages/card/index",
     "pages/vip/register/index",
     "pages/vip/register-success/index",
     "pages/vip/welfare/index"
