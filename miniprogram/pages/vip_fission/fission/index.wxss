@@ -1,0 +1,41 @@
+.newColumn{
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100vw;
+}
+.imageStyle{
+  width: 73%;
+  height: 20%;
+  position: fixed;
+  top: 300rpx;
+  background-color: black;
+  border-radius: 8rpx;
+}
+
+.buttonStyle{
+  position: fixed;
+  top:700rpx;
+  width: 500rpx;
+  align-items: center;
+  justify-self:center;
+  background-color: #00CC66;
+}
+
+.textSmallStyle{
+  font-size: 35rpx;
+  color: white;
+}
+
+.textStyle{
+  font-size: 56rpx;
+  top:710rpx;
+  position: fixed;
+  color:#00CC66;
+}
+
+.vanbuttonStyle{
+  top:1000rpx;
+  position: fixed;
+}

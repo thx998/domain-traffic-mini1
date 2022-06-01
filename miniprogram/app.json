@@ -1,0 +1,33 @@
+{
+  "pages": [
+    "pages/card/index",
+    "pages/mine/index",
+    "pages/pan_channels/channels/index",
+    "pages/vip_fission/fission/index"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "Weixin",
+    "navigationBarTextStyle": "black"
+  },
+  "sitemapLocation": "sitemap.json",
+  "tabBar": {
+    "custom": true,
+    "selectedColor": "#00CC66",
+    "list": [
+      {
+        "pagePath": "pages/card/index",
+        "text": "卡包"
+      },
+      {
+        "pagePath": "pages/mine/index",
+        "text": "我的"
+      }
+    ]
+  },
+
+  "useExtendedLib": {
+    "weui": true
+  }
+}

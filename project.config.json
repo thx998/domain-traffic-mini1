@@ -4,6 +4,7 @@
     "ignore": [],
     "include": []
   },
+  "miniprogramRoot": "miniprogram/",
   "setting": {
     "bundle": false,
     "userConfirmedBundleSwitch": false,
@@ -43,13 +44,14 @@
     "disableUseStrict": false,
     "useCompilerPlugins": false
   },
-  "compileType": "miniprogram",
   "libVersion": "2.19.4",
-  "appid": "wx9003c4dba9e3952c",
+  "appid": "wx8183e8b9ae2d0ece",
   "projectname": "miniprogram-92",
   "condition": {},
   "editorSetting": {
     "tabIndent": "insertSpaces",
     "tabSize": 2
-  }
+  },
+  "srcMiniprogramRoot": "miniprogram/",
+  "compileType": "miniprogram"
 }
