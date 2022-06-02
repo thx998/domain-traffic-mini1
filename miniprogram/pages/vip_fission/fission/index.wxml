@@ -2,7 +2,7 @@
   <van-nav-bar />
   <van-notify id="van-notify" />
 
-  <image class="imageStyle"></image>
+  <image class="imageStyle" src="{{activityDetail.activityPosterUrl}}"></image>
 
   <block wx:if="{{jumpValue===0}}">
     <button class="buttonStyle" open-type="getPhoneNumber" bindgetphonenumber="getPhoneNumber">
@@ -12,7 +12,7 @@
   <block wx:elif="{{jumpValue===1}}">
     <text class="textStyle">您已领取成功！</text>
     <view class="vanbuttonStyle">
-    <van-button type="primary" color="#53C390" round="true">查看更多</van-button>
+    <van-button type="primary" color="#00CC66" round="true" bind:click="jumpVipRights">查看更多</van-button>
   </view>
     
   </block>

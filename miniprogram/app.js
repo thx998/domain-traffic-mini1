@@ -14,6 +14,26 @@ App({
     })
   },
   globalData: {
-   
+   "host":"http://dev.theoxao.com/",
+  // 首次调用
+    activityGet:"api/platform/call/activity/",
+
+    // 获取手机号
+
+    getPhone:"api/platform/call/applets/phoneNumber",
+
+    // 点击我要领取按钮
+
+    getButtonAsk:"api/platform/call/activity/getActivitiesQualification",
+
+
+    // 参与助力
+
+    shareHelpDo:"api/platform/call/activity/participateActivityHelp",
+
+    // 注册客户
+
+    getCustomer:"api/platform/call/customer"
+
   }
 })

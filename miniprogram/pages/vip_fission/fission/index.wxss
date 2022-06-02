@@ -6,20 +6,21 @@
   width: 100vw;
 }
 .imageStyle{
-  width: 73%;
-  height: 20%;
+  width: 500rpx;
+  height: 300rpx;
   position: fixed;
-  top: 300rpx;
-  background-color: black;
+  top: 270rpx;
   border-radius: 8rpx;
 }
 
 .buttonStyle{
   position: fixed;
-  top:700rpx;
-  width: 500rpx;
-  align-items: center;
-  justify-self:center;
+  top:720rpx;
+  width: 400rpx;
+  display: flex;
+  flex-direction: column;
+  align-items: center !important;
+  justify-content: center !important;
   background-color: #00CC66;
 }
 
@@ -29,7 +30,7 @@
 }
 
 .textStyle{
-  font-size: 56rpx;
+  font-size: 48rpx;
   top:710rpx;
   position: fixed;
   color:#00CC66;

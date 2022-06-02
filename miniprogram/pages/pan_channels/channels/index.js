@@ -1,11 +1,45 @@
 // pages/pan_channels/channels/index.js
+const MD5 = require('js-md5');
+import timeChange from '../../../utils/timestampChange.js'
+const {
+  TOKEN
+} = require('../../../utils/exToken.js');
+const app = getApp();
+const globalData = app.globalData;
+const host = app.globalData['host'];
+const weq = require('../../../utils/req-util.js')
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
+    activityDetail:{},
+    aid:"1531117717379665921"
+  },
 
+  // 首次Activity接口
+  getActivity() {
+    var url = host + globalData['activityGet'] + this.data.aid;
+    const MM = timeChange();
+    const params = {
+      timestamp: MM.timestamp,
+      sign: MD5(`timestamp${MM.timestamp}${TOKEN}`)
+    }
+    console.log(`timestamp${MM.timestamp}${TOKEN}`);
+    const options = {
+      url: url,
+      data: params
+    }
+    weq.wxRequest(options).then((res) => {
+      if (!res) {
+        return;
+      }
+      this.setData({
+        activityDetail: res.data.data
+      })
+      console.log(res.data.data);
+    })
   },
 
   /**
@@ -26,7 +60,7 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow() {
-
+    this.getActivity();
   },
 
   /**

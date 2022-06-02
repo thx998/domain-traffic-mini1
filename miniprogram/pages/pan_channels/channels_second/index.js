@@ -8,24 +8,32 @@ const {
 const app = getApp();
 const globalData = app.globalData;
 const host = app.globalData['host'];
-const weq = require('../../../utils/req-util.js')
+const weq = require('../../../utils/req-util.js');
 
 
 Page({
   data: {
     jumpValue: 0,
-    aid: 2,
     activityDetail: {},
-    helpId: '',
-    activityType: 1
+    aid: "1531117717379665921",
+    activityType: ''
   },
   // 获取手机号点击 
   getPhoneNumber(e) {
+    console.log(e);
     console.log(`code-->`, e.detail.code);
-
-    this.getPhone(e.detail.code)
-
+    if (e.detail.errMsg === "getPhoneNumber:ok") {
+      this.getPhone(e.detail.code);
+    } else {
+      wx.showToast({
+        title: "请绑定手机号！",
+        icon: "none"
+      })
+    }
   },
+
+
+
   // 首次Activity接口
   getActivity() {
     var url = host + globalData['activityGet'] + this.data.aid;
@@ -47,40 +55,17 @@ Page({
         activityDetail: res.data.data,
         activityType: res.data.data.activityType
       })
-      console.log(res.data.data);
       Notify({
-        message: res.data.data.activityPageTitle,
+        message: this.data.activityDetail.activityPageTitle,
         color: '#666666',
         background: 'transparent',
         duration: 0,
         top: "55"
       });
-      if (res.data.activityType === 1) {
-        // 判断是否需要助力按钮
-        if (res.data.activityHelp > 0) {
-          this.setData({
-
-          })
-        } else {
-
-        }
-        // 判断是助力页面还是无助力页面
-        if (this.data.helpId != null) {
-          wx.reLaunch({
-            url: '../assistance_leader/index?phone=' + this.data.phone,
-          })
-        } else {
-          wx.reLaunch({
-            url: './index',
-          })
-        }
-      } else if(res.data.activityType===2) {
-        wx.reLaunch({
-          url: '../../pan_channels/channels/index',
-        })
-      }
+      console.log(res.data.data);
     })
   },
+
 
   // 获取手机号接口 
   getPhone(code) {
@@ -132,10 +117,6 @@ Page({
         this.setData({
           jumpValue: 1
         })
-      } else if (res.data.code != 200 && (res.data.msg == "未邀请助力" || res.data.msg == "助力人数不足")) {
-        wx.reLaunch({
-          url: '../assistance_leader/index?phone=' + phone,
-        })
       } else {
         wx.showToast({
           title: res.data.msg,
@@ -145,6 +126,7 @@ Page({
 
     })
   },
+
   // 跳转会员权益
   jumpVipRights() {
     wx.navigateTo({
@@ -153,28 +135,13 @@ Page({
   },
 
   onLoad(option) {
-if(option.externalUserId!=undefined&&option.externalUserId!=null){
-  if (option.helpId != undefined){
-    this.setData({
-      helpId: option.helpId
-    })
-  }
-  if (option.jumpValue != undefined) {
-    this.setData({
-      jumpValue: option.jumpValue
-    })
-  }
-}else{
-  wx.reLaunch({
-    url: 'url',
-  })
-}
 
-   
   },
 
   onShow() {
     this.getActivity();
   }
+
+
 
 })

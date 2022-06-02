@@ -1,0 +1,16 @@
+
+.newColumn{
+
+  height: 100vh;
+  width: 100vw;
+}
+.imageStyle{
+  width: 692rpx;
+  height: 834rpx;
+}
+
+.newColumn1{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
