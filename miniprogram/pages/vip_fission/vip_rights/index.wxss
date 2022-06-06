@@ -1,6 +1,5 @@
 
 .newColumn{
-
   height: 100vh;
   width: 100vw;
 }
@@ -8,7 +7,6 @@
   width: 692rpx;
   height: 834rpx;
 }
-
 .newColumn1{
   display: flex;
   flex-direction: column;

@@ -1,9 +1,7 @@
 <view class="newColumn">
   <van-nav-bar />
   <van-notify id="van-notify" />
-
   <image class="imageStyle" src="{{activityDetail.activityPosterUrl}}"></image>
-
   <block wx:if="{{jumpValue===0}}">
     <button class="buttonStyle" open-type="getPhoneNumber" bindgetphonenumber="getPhoneNumber">
       <text class="textSmallStyle">我要领取</text>
@@ -14,7 +12,6 @@
     <view class="vanbuttonStyle">
     <van-button type="primary" color="#00CC66" round="true" bind:click="jumpVipRights">查看更多</van-button>
   </view>
-    
   </block>
 
 

@@ -74,7 +74,7 @@ Page({
             url: './index',
           })
         }
-      } else if(res.data.activityType===2) {
+      } else if (res.data.activityType === 2) {
         wx.reLaunch({
           url: '../../pan_channels/channels/index',
         })
@@ -153,24 +153,24 @@ Page({
   },
 
   onLoad(option) {
-if(option.externalUserId!=undefined&&option.externalUserId!=null){
-  if (option.helpId != undefined){
-    this.setData({
-      helpId: option.helpId
-    })
-  }
-  if (option.jumpValue != undefined) {
-    this.setData({
-      jumpValue: option.jumpValue
-    })
-  }
-}else{
-  wx.reLaunch({
-    url: 'url',
-  })
-}
+    if (option.externalUserId != undefined && option.externalUserId != null) {
+      if (option.helpId != undefined) {
+        this.setData({
+          helpId: option.helpId
+        })
+      }
+      if (option.jumpValue != undefined) {
+        this.setData({
+          jumpValue: option.jumpValue
+        })
+      }
+    } else {
+      wx.reLaunch({
+        url: 'url',
+      })
+    }
 
-   
+
   },
 
   onShow() {
