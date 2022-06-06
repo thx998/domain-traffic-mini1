@@ -1,1 +1,41 @@
 /* pages/card/index.wxss */
+.wrap{
+  padding: 0 20rpx;
+  box-sizing: border-box;
+  font-size: 32rpx;
+}
+.list{
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 20rpx;
+  border: 1px solid #ddd;
+  border-radius: 10rpx;
+  padding: 0 15rpx;
+}
+.list-content{
+  border-bottom: 1px solid #ddd;
+  padding: 50rpx 0;
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+.list-logo{
+  width: 80rpx;
+  height: 80rpx;
+  border-radius: 100%;
+  border: 1px solid #ddd;
+  margin-right: 10rpx;
+}
+.list-status{
+  position: absolute;
+  top: 10rpx;
+  right: 10rpx;
+  font-size: 28rpx;
+}
+.list-info{
+  padding: 10rpx 0;
+  font-size: 28rpx;
+}
+.list-date{
+  float: right;
+}

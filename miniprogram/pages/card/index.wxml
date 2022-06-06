@@ -1,2 +1,15 @@
-<!--pages/card/index.wxml-->
-<text>pages/card/index.wxml</text>
+<view class="wrap">
+  <view class="list" wx:for="{{list}}" >
+    <view class="list-content">
+      <image class="list-logo" />
+      <view>
+        <text>50元代金券：{{item.name}}</text>
+        <text class="list-status">未使用</text>
+      </view>
+    </view>
+    <view class="list-info">
+      <text>三体科技</text>
+      <text class="list-date">有效期至：2022.6.30</text>
+    </view>
+  </view>
+</view>
