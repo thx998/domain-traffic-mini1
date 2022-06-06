@@ -1,27 +1,26 @@
-// pages/card/index.js
-import { getCardList } from '../../utils/service';
-const app = getApp();
+// pages/card/detail/index.js
+import { getCardDetail } from '../../../utils/service';
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    list: []
+    detail: {},
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad(options) {
-    // 获取卡包列表
+    console.log('detail options', options);
+    // 获取卡包详情
     const that = this;
-    getCardList('18662170962').then(res => {
-      const { data = [] } = res;
-      this.setData({
-        list: [{ name: '卡一', id: 1 }, { name: '卡二', id: 2 }] || data
+    getCardDetail(options.id).then(res => {
+      const { data } = res;
+      that.setData({
+        detail: data || { id: options.id }
       })
-      console.log('res', res)
     }).catch(err => {
       console.log('err', err);
     })
@@ -31,16 +30,14 @@ Page({
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady() {
-    console.log('ready');
+
   },
 
   /**
    * 生命周期函数--监听页面显示
    */
   onShow() {
-    this.getTabBar().setData({
-      active: 0,
-    });
+
   },
 
   /**
@@ -54,7 +51,7 @@ Page({
    * 生命周期函数--监听页面卸载
    */
   onUnload() {
-    
+
   },
 
   /**

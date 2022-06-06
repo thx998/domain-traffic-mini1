@@ -1,8 +1,9 @@
 {
   "pages": [
-    "pages/vip_fission/fission/index",
-    "pages/card/index",
     "pages/mine/index",
+    "pages/card/index",
+    "pages/card/detail/index",
+    "pages/vip_fission/fission/index",
     "pages/pan_channels/channels/index",
     "pages/vip_fission/assistance_leader/index",
     "pages/vip_fission/assistance_user/index",

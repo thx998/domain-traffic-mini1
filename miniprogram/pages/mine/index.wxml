@@ -1,2 +1,15 @@
 <!--pages/mine/index.wxml-->
-<text>pages/mine/index.wxml</text>
+<view class="container">
+  <view class="list-item">
+    头像
+    <view><image/></view>
+  </view>
+  <view class="list-item">
+    昵称
+    <text>啊哈</text>
+  </view>
+  <view class="list-item">
+    手机号
+    <text>18662170962</text>
+  </view>
+</view>
