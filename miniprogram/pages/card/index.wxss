@@ -1,4 +1,7 @@
 /* pages/card/index.wxss */
+.container{
+  padding-bottom: 100rpx;
+}
 .wrap{
   padding: 0 20rpx;
   box-sizing: border-box;

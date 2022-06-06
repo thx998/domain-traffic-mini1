@@ -16,10 +16,11 @@ Page({
   onLoad(options) {
     // 获取卡包列表
     const that = this;
-    getCardList('18662170962').then(res => {
+    const phone = options.phone || '18662170962';
+    getCardList(phone).then(res => {
       const { data = [] } = res;
       this.setData({
-        list: [{ name: '卡一', id: 1 }, { name: '卡二', id: 2 }] || data
+        list: [{ name: '卡一', id: 1 }, { name: '卡二', id: 2 }, { name: '卡三', id: 3 }, { name: '卡四', id: 4 }, { name: '卡无', id: 5 }, { name: '卡六', id: 6 }] || data
       })
       console.log('res', res)
     }).catch(err => {
