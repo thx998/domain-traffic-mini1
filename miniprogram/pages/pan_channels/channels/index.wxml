@@ -1,2 +1,7 @@
-<!--pages/pan_channels/channels/index.wxml-->
-<text>pages/pan_channels/channels/index.wxml</text>
+<view class="newColumn">
+<view class="viewStyle">
+  <image src="{{activityDetail.activityPosterUrl}}" class="imageStyle"></image>
+</view>
+
+<image class="newImageStyle" src="{{activityDetail.activityLandingCode}}"></image>
+</view>

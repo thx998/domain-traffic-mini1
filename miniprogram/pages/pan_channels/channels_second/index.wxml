@@ -1,0 +1,33 @@
+<view class="newColumn">
+  <van-nav-bar />
+  <van-notify id="van-notify" />
+
+  <image class="imageStyle" src="{{activityDetail.activityPosterUrl}}"></image>
+
+  <block wx:if="{{jumpValue===0}}">
+    <button class="buttonStyle" open-type="getPhoneNumber" bindgetphonenumber="getPhoneNumber">
+      <text class="textSmallStyle">我要领取</text>
+    </button>
+
+    <view class="containerNew">
+      <view class="smallBox">
+        <text class="textStyle">{{activityDetail.activityPageWelcome}}</text>
+      </view>
+      <image class="imageStyle1" src="{{activityDetail.channelCodeQrCode}}" show-menu-by-longpress="true" />
+      <view class="smallBox1">
+        <text class="textStyle">{{activityDetail.activityPageWelcome}}</text>
+      </view>
+    </view>
+
+    <text class="smallTextStyle1">{{activityDetail.activityPageGuide}}</text>
+  </block>
+  <block wx:elif="{{jumpValue===1}}">
+    <text class="textStyle2">您已领取成功！</text>
+    <view class="vanbuttonStyle">
+      <van-button type="primary" color="#00CC66" round="true" bind:click="jumpVipRights">查看更多</van-button>
+    </view>
+
+  </block>
+
+
+</view>

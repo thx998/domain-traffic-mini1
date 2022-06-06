@@ -1,10 +1,7 @@
 "use strict";
+
 function wxRequest(options) {
-  // var userdetail = wx.getStorageSync('function')
-  options.header['x-version'] = 'beta';
-  // if(userdetail.nickname!=null){
-  //   options.header['auth-principal-attribute-key'] = userdetail.id;
-  // }
+  // options.header['x-version'] = 'beta';
   var method = options.method || null;
   if (method === null) {
     method = "GET";
@@ -19,10 +16,9 @@ function wxRequest(options) {
       data: options.data,
       header: options.header,
       success: (res) => {
-        intercept(res, resolove, reject);
         wx.hideLoading({
           success: (loadingRes) => {
-
+            resolove(res);
           },
         })
 

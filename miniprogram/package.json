@@ -9,6 +9,8 @@
   "license": "ISC",
   "description": "",
   "dependencies": {
-    "@vant/weapp": "^1.10.3"
+    "@vant/weapp": "^1.10.3",
+    "js-md5": "^0.7.3",
+    "pretty-ms": "^7.0.1"
   }
 }

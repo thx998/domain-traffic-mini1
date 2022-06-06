@@ -1,0 +1,98 @@
+.newColumn {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  overflow-y: auto;
+  overflow-x: hidden;
+  width: 100vw;
+}
+
+.imageStyle {
+  width: 500rpx;
+  height: 300rpx;
+  margin-top: 120rpx;
+  border-radius: 8rpx;
+}
+
+.buttonStyle {
+  margin-top: 56rpx;
+  width: 450rpx;
+  display: flex;
+  flex-direction: column;
+  align-items: center !important;
+  justify-content: center !important;
+  background-color: #00CC66;
+}
+
+.textSmallStyle {
+  font-size: 35rpx;
+  color: white;
+}
+
+.vanbuttonStyle {
+  top: 1000rpx;
+  position: fixed;
+}
+
+.containerNew {
+  width: 520rpx;
+  height: 520rpx;
+  display: flex;
+  flex-direction: column;
+  align-items:center;
+  border-radius: 8rpx;
+  position: relative;
+  margin-top: 50rpx;
+}
+
+.smallBox {
+  height: 100rpx;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  top: 0;
+  background-color: rgba(245, 245, 245, 1);
+}
+
+.smallBox1 {
+  height: 100rpx;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  bottom: 0;
+  background-color: rgba(245, 245, 245, 1);
+}
+
+.imageStyle1 {
+  position: absolute;
+  width: 310rpx;
+  height: 320rpx;
+  bottom: 100rpx;
+}
+
+.textStyle {
+  font-size: 36rpx;
+  color: #666666;
+}
+
+.textStyle2 {
+  font-size: 48rpx;
+  color: #00CC66;
+  margin-top: 60rpx;
+}
+
+.smallTextStyle1 {
+  font-size: 32rpx;
+  color: black;
+  font-weight: 500;
+  margin-top: 40rpx;
+  padding-bottom: 40rpx;
+
+}

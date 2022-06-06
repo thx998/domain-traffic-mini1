@@ -1,0 +1,13 @@
+<!--pages/vip/detail/index.wxml-->
+<view class="container">
+  <view class="img">
+    <image src="./example.png" mode="aspectFit" />
+  </view>
+  <view class="center title">会员注册成功</view>
+  <view class="text center">{{time + '秒后跳转到福利页面'}}</view>
+  <button
+    class="btn active"
+    bindtap="handleNav"
+    disabled="{{ false }}"
+  >我要福利</button>
+</view>

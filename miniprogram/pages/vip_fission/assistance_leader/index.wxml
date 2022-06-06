@@ -1,0 +1,41 @@
+<view class="newColumn">
+  <van-nav-bar />
+  <van-notify id="van-notify" />
+
+  <image class="imageStyle" src="{{helpDetail.activityPosterUrl}}"></image>
+
+<view class="newTextRowStyle">
+  <block wx:if="{{actStatus===true}}">
+<text class="smallTextStyle">还有</text>
+<van-count-down time="{{ time }}" use-slot bind:change="onChange">
+  <text class="item1">{{ timeData.days }}</text>
+  <text class="textItem">天</text>
+  <text class="item1">{{ timeData.hours }}</text>
+  <text class="textItem">时</text>
+  <text class="item2">{{ timeData.minutes }}</text>
+  <text class="textItem">分</text>
+  <!-- <text class="item3">{{ timeData.seconds }}</text> -->
+</van-count-down>
+<text class="smallTextStyle">活动结束</text>
+</block>
+<block wx:else>
+  <text class="smallTextStyle">活动已结束！</text>
+</block>
+</view>
+<view class="newTextRowStyle1">
+  <text class="smallTextStyle1">还有</text>
+  <text class="helpText">{{helpDetail.activityHelp-helpDetail.helpedCount}}</text>
+  <text class="smallTextStyle1">位好友来助力完成</text>
+</view>
+
+<block wx:if="{{shareStatus===true}}">
+<button class="buttonStyle" open-type="share" >
+      <text class="textSmallStyle">赶快分享转发邀请好友助力吧！</text>
+    </button>
+  </block>
+  <block wx:else>
+    <button class="buttonStyle" bindtap="showNoShare">
+      <text class="textSmallStyle">赶快分享转发邀请好友助力吧！</text>
+    </button>
+  </block>
+</view>

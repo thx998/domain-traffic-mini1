@@ -1,9 +1,15 @@
 {
   "pages": [
+    "pages/vip_fission/fission/index",
     "pages/card/index",
     "pages/mine/index",
     "pages/pan_channels/channels/index",
-    "pages/vip_fission/fission/index"
+    "pages/vip_fission/assistance_leader/index",
+    "pages/vip_fission/assistance_user/index",
+    "pages/pan_channels/channels_second/index",
+    "pages/vip_fission/vip_rights/index",
+    "pages/register/index",
+    "pages/register-success/index"
   ],
   "window": {
     "backgroundTextStyle": "light",
@@ -25,9 +31,5 @@
         "text": "我的"
       }
     ]
-  },
-
-  "useExtendedLib": {
-    "weui": true
   }
 }
