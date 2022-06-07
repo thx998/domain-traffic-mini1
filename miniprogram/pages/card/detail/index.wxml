@@ -1,0 +1,12 @@
+<!--pages/card/detail/index.wxml-->
+<view class="container">
+  <view class="status">待使用</view>
+  <view class="qrcode">
+    <image/>
+  </view>
+  <view class="list">
+    <view>名称<text class="list-right">优惠券</text></view>
+    <view>面值<text class="list-right">100元</text></view>
+    <view>有效期<text class="list-right">2022-08-08</text></view>
+  </view>
+</view>

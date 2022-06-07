@@ -1,2 +1,15 @@
-<!--pages/card/index.wxml-->
-<text>pages/card/index.wxml</text>
+<view class="container">
+  <navigator class="list" wx:for="{{list}}" wx:key="index" url="./detail/index?id={{item.id}}" >
+    <view class="list-content">
+      <image class="list-logo" />
+      <view>
+        <text>{{item.name}}</text>
+        <text class="list-status">未使用</text>
+      </view>
+    </view>
+    <view class="list-info">
+      <text>三体科技</text>
+      <text class="list-date">有效期至：2022.6.30</text>
+    </view>
+  </navigator>
+</view>
