@@ -7,7 +7,11 @@ Page({
   data: {
 
   },
-
+  onClickLeft(){
+    wx.navigateBack({
+      delta:0
+    })
+  },
   /**
    * 生命周期函数--监听页面加载
    */

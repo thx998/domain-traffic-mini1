@@ -5,6 +5,8 @@
     "van-button": "@vant/weapp/button/index",
     "van-count-down": "@vant/weapp/count-down/index"
   },
-  "navigationStyle": "custom"
+  "navigationStyle": "custom",
+  "enablePullDownRefresh":true
+  
   
 }

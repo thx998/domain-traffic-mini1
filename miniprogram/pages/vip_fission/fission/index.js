@@ -16,7 +16,7 @@ Page({
     jumpValue: 0,
     aid: 2,
     activityDetail: {},
-    helpId: '',
+    helpId: 2,
     activityType: 1
   },
   // 获取手机号点击 
@@ -55,28 +55,18 @@ Page({
         duration: 0,
         top: "55"
       });
-      if (res.data.activityType === 1) {
+      if (res.data.data.activityType === 1) {
         // 判断是否需要助力按钮
-        if (res.data.activityHelp > 0) {
+        if (res.data.data.activityHelp > 0) {
           this.setData({
 
           })
         } else {
 
         }
-        // 判断是助力页面还是无助力页面
-        if (this.data.helpId != null) {
-          wx.reLaunch({
-            url: '../assistance_leader/index?phone=' + this.data.phone,
-          })
-        } else {
-          wx.reLaunch({
-            url: './index',
-          })
-        }
-      } else if (res.data.activityType === 2) {
+      } else if (res.data.data.activityType === 2) {
         wx.reLaunch({
-          url: '../../pan_channels/channels/index',
+          url: '../../pan_channels/channels_second/index',
         })
       }
     })
@@ -133,9 +123,16 @@ Page({
           jumpValue: 1
         })
       } else if (res.data.code != 200 && (res.data.msg == "未邀请助力" || res.data.msg == "助力人数不足")) {
-        wx.reLaunch({
-          url: '../assistance_leader/index?phone=' + phone,
-        })
+        // 判断是助力页面还是无助力页面
+        if (this.data.helpId != null || this.data.helpId != undefined) {
+          wx.navigateTo({
+            url: '../assistance_leader/index?phone=' + encodeURIComponent(JSON.stringify(phone)),
+          })
+        } else {
+          wx.reLaunch({
+            url: '../assistance_user/index?phone=' + encodeURIComponent(JSON.stringify(phone)) + '&helpid=' + encodeURIComponent(JSON.stringify(this.data.helpId)),
+          })
+        }
       } else {
         wx.showToast({
           title: res.data.msg,
@@ -154,9 +151,13 @@ Page({
 
   onLoad(option) {
     if (option.externalUserId != undefined && option.externalUserId != null) {
-      if (option.helpId != undefined) {
+      wx.reLaunch({
+        url: '../../register/index',
+      })
+    } else {
+      if (option.helpid != undefined) {
         this.setData({
-          helpId: option.helpId
+          helpId: option.helpid
         })
       }
       if (option.jumpValue != undefined) {
@@ -164,13 +165,7 @@ Page({
           jumpValue: option.jumpValue
         })
       }
-    } else {
-      wx.reLaunch({
-        url: 'url',
-      })
     }
-
-
   },
 
   onShow() {

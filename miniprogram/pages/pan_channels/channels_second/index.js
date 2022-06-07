@@ -15,7 +15,7 @@ Page({
   data: {
     jumpValue: 0,
     activityDetail: {},
-    aid: "1531117717379665921",
+    aid:2,
     activityType: ''
   },
   // 获取手机号点击 

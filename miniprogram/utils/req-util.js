@@ -16,17 +16,17 @@ function wxRequest(options) {
       data: options.data,
       header: options.header,
       success: (res) => {
+        resolove(res);
         wx.hideLoading({
           success: (loadingRes) => {
-            resolove(res);
           },
         })
 
       },
       fail: (error) => {
+        reject(error);
         wx.hideLoading({
           success: (res) => {
-            reject(error);
           },
         })
       }

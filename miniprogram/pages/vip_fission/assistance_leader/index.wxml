@@ -4,32 +4,32 @@
 
   <image class="imageStyle" src="{{helpDetail.activityPosterUrl}}"></image>
 
-<view class="newTextRowStyle">
-  <block wx:if="{{actStatus===true}}">
-<text class="smallTextStyle">还有</text>
-<van-count-down time="{{ time }}" use-slot bind:change="onChange">
-  <text class="item1">{{ timeData.days }}</text>
-  <text class="textItem">天</text>
-  <text class="item1">{{ timeData.hours }}</text>
-  <text class="textItem">时</text>
-  <text class="item2">{{ timeData.minutes }}</text>
-  <text class="textItem">分</text>
-  <!-- <text class="item3">{{ timeData.seconds }}</text> -->
-</van-count-down>
-<text class="smallTextStyle">活动结束</text>
-</block>
-<block wx:else>
-  <text class="smallTextStyle">活动已结束！</text>
-</block>
-</view>
-<view class="newTextRowStyle1">
-  <text class="smallTextStyle1">还有</text>
-  <text class="helpText">{{helpDetail.activityHelp-helpDetail.helpedCount}}</text>
-  <text class="smallTextStyle1">位好友来助力完成</text>
-</view>
+  <view class="newTextRowStyle">
+    <block wx:if="{{actStatus===true}}">
+      <text class="smallTextStyle">还有</text>
+      <van-count-down time="{{ time }}" use-slot bind:change="onChange">
+        <text class="item1">{{ timeData.days }}</text>
+        <text class="textItem">天</text>
+        <text class="item1">{{ timeData.hours }}</text>
+        <text class="textItem">时</text>
+        <text class="item2">{{ timeData.minutes }}</text>
+        <text class="textItem">分</text>
+        <!-- <text class="item3">{{ timeData.seconds }}</text> -->
+      </van-count-down>
+      <text class="smallTextStyle">活动结束</text>
+    </block>
+    <block wx:else>
+      <text class="smallTextStyle">活动已结束！</text>
+    </block>
+  </view>
+  <view class="newTextRowStyle1">
+    <text class="smallTextStyle1">还需</text>
+    <text class="helpText">{{helpDetail.activityHelp-helpDetail.helpedCount}}</text>
+    <text class="smallTextStyle1">位好友来助力完成</text>
+  </view>
 
-<block wx:if="{{shareStatus===true}}">
-<button class="buttonStyle" open-type="share" >
+  <block wx:if="{{shareStatus===true}}">
+    <button class="buttonStyle" open-type="share">
       <text class="textSmallStyle">赶快分享转发邀请好友助力吧！</text>
     </button>
   </block>
@@ -38,4 +38,11 @@
       <text class="textSmallStyle">赶快分享转发邀请好友助力吧！</text>
     </button>
   </block>
+
+ 
+  <view style="display: flex;flex-direction: row;align-items: center;flex-wrap: wrap; position: fixed;top:1150rpx;left:48rpx;right: 32rpx;">
+    <block wx:for="{{avatarArray}}">
+  <image style="width: 80rpx;height: 80rpx;border-radius: 48rpx;margin-right: 8rpx;margin-bottom: 8rpx;" src="https://test-1304306051.cos.ap-shanghai.myqcloud.com/image/e21b018587aefcc7e86428f907576300.png"></image>
+</block>
+</view>
 </view>

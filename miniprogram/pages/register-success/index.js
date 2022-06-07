@@ -24,10 +24,11 @@ Page({
     const MM = timeChange();
     const params = {
       timestamp: MM.timestamp,
-      sign: MD5(`activityId${this.data.activityId}externalUserId${this.data.externalUserId}userId${this.data.useId}timestamp${MM.timestamp}${TOKEN}`)
+      sign: MD5(`activityId${this.data.activityId}externalUserId${this.data.externalUserId}timestamp${MM.timestamp}userId${this.data.useId}${TOKEN}`)
     }
     console.log(`timestamp${MM.timestamp}${TOKEN}`);
     const options = {
+      method:"POST",
       url: url,
       data: params
     }

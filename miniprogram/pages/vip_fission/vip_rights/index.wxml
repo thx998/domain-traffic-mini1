@@ -1,5 +1,7 @@
 <view class="newColumn">
-  <van-nav-bar title="会员权益" />
+  <van-nav-bar title="会员权益" bind:click-left="onClickLeft">
+  <text style="font-size: 32rpx;font-weight: 500;"  slot="left">返回</text>
+  </van-nav-bar>
   <view class="newColumn1">
     <image class="imageStyle" src="https://test-1304306051.cos.ap-shanghai.myqcloud.com/image/174c45c022b5e7a0e0829fa99addbca0.png"></image>
   </view>

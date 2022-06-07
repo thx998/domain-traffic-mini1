@@ -13,14 +13,14 @@ const weq = require('../../../utils/req-util.js');
 
 Page({
   data: {
-    jumpValue:0,
+    jumpValue: 0,
     time: 30 * 60 * 60 * 1000,
     timeData: {},
     helpId:"",
-    phone:"",
-    aid:2,
-    helpTitle:"助力成功！",
-    activityDetail:{}
+    phone: "",
+    aid: 2,
+    helpTitle: "助力成功！",
+    activityDetail: {}
   },
   onChange(e) {
     this.setData({
@@ -29,26 +29,26 @@ Page({
   },
 
 
-   // 跳转会员权益
-   jumpVipRights() {
+  // 跳转会员权益
+  jumpVipRights() {
     wx.navigateTo({
       url: '../vip_rights/index',
     })
   },
 
-  onLoad(option) {
-    if(option.helpId!=undefined || option.phone!=undefined){
+  onLoad(options) {
+    console.log(`options-->`, options);
+    if (options.helpid != undefined || options.phone != undefined) {
       this.setData({
-        helpId:option.helpId,
-        phone:option.phone
+        helpId: decodeURIComponent(options.helpid),
+        phone: decodeURIComponent(options.phone)
       })
-      this.shareSuccess();
     }
-    this.getActivity();
-    
+    console.log(`options.helpid-->`,this.data.helpId);
+    console.log(`options.phone-type-->`,typeof(options.phone));
   },
-   // 首次Activity接口
-   getActivity() {
+  // 首次Activity接口
+  getActivity() {
     var url = host + globalData['activityGet'] + this.data.aid;
     const MM = timeChange();
     const params = {
@@ -76,13 +76,13 @@ Page({
         top: "55"
       });
     })
-   },
+  },
 
   // 链接初次跳转助力成功
 
   // 分享调用接口
   shareSuccess() {
-    var url = host + globalData['shareHelpDo'] + '?activityId=' + this.data.aid + '&phone=' + this.data.phone +'&helpId=' + this.data.helpId;
+    var url = host + globalData['shareHelpDo'] + '?activityId=' + this.data.aid + '&phone=' + this.data.phone + '&helpId=' + this.data.helpId;
     const MM = timeChange();
     const params = {
       timestamp: MM.timestamp,
@@ -97,15 +97,27 @@ Page({
       if (!res) {
         return;
       }
-      if(res.data.code===200){
+      if (res.data.code === 200) {
 
-      }else if(res.data.code===500){
+      } else if (res.data.code === 500) {
         this.setData({
-          helpTitle:res.data.msg
+          helpTitle: res.data.msg
         })
       }
     })
   },
+
+  onShow() {
+    this.shareSuccess();
+    this.getActivity();
+  },
+
+  onPullDownRefresh(){
+    this.onLoad();
+    setTimeout(() => {
+      wx.stopPullDownRefresh();//得到数据后停止下拉刷新
+    }, 400)
+  }
 
   // onShareAppMessage(){
   //   return {
@@ -114,5 +126,5 @@ Page({
   //     imageUrl:""
   //   }
   // }
- 
+
 })

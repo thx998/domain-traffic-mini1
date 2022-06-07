@@ -20,9 +20,10 @@ Page({
     aid: 2,
     helpDetail: {},
     actStatus: true,
-    phone: '',
+    phone:"",
     helpId: "",
-    shareStatus: true
+    shareStatus: true,
+    avatarArray:[]
   },
   onChange(e) {
     this.setData({
@@ -32,6 +33,7 @@ Page({
 
   // 助力初始页面的基本信息
   getHelpDetail(phone) {
+    console.log( `phone-->`,phone);
     var url = host + globalData['activityGet'] + this.data.aid
     const MM = timeChange();
     const params = {
@@ -45,12 +47,18 @@ Page({
       data: params
     }
     weq.wxRequest(options).then((res) => {
+      console.log(`helpDetailRes-->`,res);
       if (!res) {
         return;
       }
       this.setData({
         helpDetail: res.data.data
       });
+      console.log(`helpDetail-->`,res.data.data);
+       this.data.avatarArray.length = res.data.data.helpedCount;
+       this.setData({
+        avatarArray:this.data.avatarArray
+       })
       var endTime = new Date(res.data.data.activityEndTime);
       var startTime = new Date();
       if (endTime - startTime < 0) {
@@ -71,6 +79,7 @@ Page({
         duration: 0,
         top: "55"
       });
+      
     })
   },
   // 分享失败
@@ -83,7 +92,7 @@ Page({
   },
 
   // 分享调用接口
-  shareHelpDo() {
+  sHelpDo() {
     var url = host + globalData['shareHelpDo'] + '?activityId=' + this.data.aid + '&phone=' + this.data.phone;
     const MM = timeChange();
     const params = {
@@ -96,6 +105,7 @@ Page({
       data: params
     }
     weq.wxRequest(options).then((res) => {
+      console.log(`helpDo-->`,res);
       if (!res) {
         return;
       }
@@ -111,18 +121,19 @@ Page({
     })
   },
 
-  onLoad(option) {
+  onLoad(options) {
     wx.hideShareMenu();
-    console.log(option);
-    this.shareHelpDo()
+    console.log(options);
     // if(option.phone!=undefined || option.phone!="" ){
     //   this.getHelpDetail(option.phone);
     // }
-    if (option.phone != undefined) {
-      this.getHelpDetail(option.phone);
+    if (options.phone != undefined || options.phone != null) {
+      const newPhone = JSON.parse(decodeURIComponent(options.phone))
+      this.getHelpDetail(newPhone);
       this.setData({
-        phone: option.phone
-      })
+        phone: newPhone
+      });
+      this.sHelpDo();
     }
   },
   onShow() {
@@ -136,7 +147,7 @@ Page({
   onShareAppMessage() {
     return {
       title: this.data.helpDetail.activityShareTitle,
-      path: "pages/vip_fission/assistance_user/index?helpId=" + this.data.helpId + '&phone=' + this.data.phone,
+      path: "pages/vip_fission/assistance_user/index?phone=" + encodeURIComponent(this.data.phone) + '&helpid=' + encodeURIComponent(this.data.helpId),
       imageUrl:this.data.helpDetail.activityShareIcon,
       success: function (res) {
         // 转发成功之后的回调
@@ -159,6 +170,13 @@ Page({
         }
       },
     }
+  },
+
+  onPullDownRefresh(){
+    this.onLoad();
+    setTimeout(() => {
+      wx.stopPullDownRefresh();//得到数据后停止下拉刷新
+    }, 400)
   }
 
 })

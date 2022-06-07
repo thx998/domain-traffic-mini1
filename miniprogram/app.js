@@ -15,7 +15,8 @@ App({
   },
   globalData: {
   //  "host":"http://dev.theoxao.com/",
-   "host":"http://ztc.santiyun.com:9600/",
+  "host":"https://api.theoxao.com/",
+  //  "host":"http://ztc.santiyun.com:9600/",
   // 首次调用
     activityGet:"api/platform/call/activity/",
 
