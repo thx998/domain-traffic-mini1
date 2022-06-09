@@ -1,12 +1,23 @@
 <!--pages/card/detail/index.wxml-->
 <view class="container">
+  <van-nav-bar bind:click-left="onClickLeft" >
+    <text style="font-size: 32rpx;"  slot="left">返回</text>
+  </van-nav-bar>
+  <block wx:if="{{detail.couponDetail.couponDetailStatus===1}}">
+  <view class="status">待领取</view>
+</block>
+<block wx:elif="{{detail.couponDetail.couponDetailStatus===2}}">
   <view class="status">待使用</view>
-  <view class="qrcode">
-    <image/>
+</block>
+<block wx:elif="{{detail.couponDetail.couponDetailStatus===3}}">
+  <view class="status">已使用</view>
+</block>
+  <view class="qrcode" >
+    <image src="{{detail.coupon.couponBackground}}"/>
   </view>
   <view class="list">
-    <view>名称<text class="list-right">优惠券</text></view>
-    <view>面值<text class="list-right">100元</text></view>
-    <view>有效期<text class="list-right">2022-08-08</text></view>
+    <view>名称<text class="list-right">{{detail.coupon.couponName}}</text></view>
+    <view>面值<text class="list-right">{{detail.coupon.couponPar}}元</text></view>
+    <view>有效期<text class="list-right">{{detail.coupon.couponEndTime}}</text></view>
   </view>
 </view>

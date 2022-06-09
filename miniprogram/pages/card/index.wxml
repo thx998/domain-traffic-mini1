@@ -1,15 +1,24 @@
 <view class="container">
-  <navigator class="list" wx:for="{{list}}" wx:key="index" url="./detail/index?id={{item.id}}" >
-    <view class="list-content">
-      <image class="list-logo" />
+  <van-nav-bar title="我的卡包"/>
+  <navigator class="list" wx:for="{{list}}" wx:key="index" url="./detail/index?id={{item.id}}"  style="background-image: url({{item.coupon.couponBackground}});">
+    <view class="list-content" >
+      <image class="list-logo" src="{{item.tenantLogo}}"/>
       <view>
-        <text>{{item.name}}</text>
-        <text class="list-status">未使用</text>
+        <text>{{item.coupon.couponName}}</text>
+        <block wx:if="{{item.couponDetail.couponDetailStatus===1}}">
+        <text class="list-status">待领取</text>
+      </block>
+      <block wx:elif="{{item.couponDetail.couponDetailStatus===2}}">
+        <text class="list-status">待使用</text>
+      </block>
+      <block wx:elif="{{item.couponDetail.couponDetailStatus===3}}">
+        <text class="list-status">已使用</text>
+      </block>
       </view>
     </view>
     <view class="list-info">
-      <text>三体科技</text>
-      <text class="list-date">有效期至：2022.6.30</text>
+      <text>{{item.tenantName}}</text>
+      <text class="list-date">有效期至：{{item.coupon.couponEndTime}}</text>
     </view>
   </navigator>
 </view>

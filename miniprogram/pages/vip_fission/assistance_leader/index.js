@@ -20,10 +20,10 @@ Page({
     aid: 2,
     helpDetail: {},
     actStatus: true,
-    phone:"",
+    phone: "",
     helpId: "",
     shareStatus: true,
-    avatarArray:[]
+    avatarArray: []
   },
   onChange(e) {
     this.setData({
@@ -33,7 +33,7 @@ Page({
 
   // 助力初始页面的基本信息
   getHelpDetail(phone) {
-    console.log( `phone-->`,phone);
+    console.log(`phone-->`, phone);
     var url = host + globalData['activityGet'] + this.data.aid
     const MM = timeChange();
     const params = {
@@ -47,18 +47,18 @@ Page({
       data: params
     }
     weq.wxRequest(options).then((res) => {
-      console.log(`helpDetailRes-->`,res);
+      console.log(`helpDetailRes-->`, res);
       if (!res) {
         return;
       }
       this.setData({
         helpDetail: res.data.data
       });
-      console.log(`helpDetail-->`,res.data.data);
-       this.data.avatarArray.length = res.data.data.helpedCount;
-       this.setData({
-        avatarArray:this.data.avatarArray
-       })
+      console.log(`helpDetail-->`, res.data.data);
+      this.data.avatarArray.length = res.data.data.helpedCount;
+      this.setData({
+        avatarArray: this.data.avatarArray
+      })
       var endTime = new Date(res.data.data.activityEndTime);
       var startTime = new Date();
       if (endTime - startTime < 0) {
@@ -79,7 +79,7 @@ Page({
         duration: 0,
         top: "55"
       });
-      
+
     })
   },
   // 分享失败
@@ -105,7 +105,7 @@ Page({
       data: params
     }
     weq.wxRequest(options).then((res) => {
-      console.log(`helpDo-->`,res);
+      console.log(`helpDo-->`, res);
       if (!res) {
         return;
       }
@@ -135,6 +135,11 @@ Page({
       });
       this.sHelpDo();
     }
+    if (options.activityid != null || options.activityid != undefined) {
+      this.setData({
+        aid: JSON.parse(decodeURIComponent(options.activityid))
+      })
+    }
   },
   onShow() {
     if (this.data.helpDetail.activityHelp - this.data.helpDetail.helpedCount === 0) {
@@ -147,8 +152,8 @@ Page({
   onShareAppMessage() {
     return {
       title: this.data.helpDetail.activityShareTitle,
-      path: "pages/vip_fission/assistance_user/index?phone=" + encodeURIComponent(this.data.phone) + '&helpid=' + encodeURIComponent(this.data.helpId),
-      imageUrl:this.data.helpDetail.activityShareIcon,
+      path: "pages/vip_fission/assistance_user/index?helpid=" + encodeURIComponent(this.data.helpId) + '&activityid=' + encodeURIComponent(this.data.aid),
+      imageUrl: this.data.helpDetail.activityShareIcon,
       success: function (res) {
         // 转发成功之后的回调
         if (res.errMsg == 'shareAppMessage:ok') {
@@ -172,10 +177,10 @@ Page({
     }
   },
 
-  onPullDownRefresh(){
+  onPullDownRefresh() {
     this.onLoad();
     setTimeout(() => {
-      wx.stopPullDownRefresh();//得到数据后停止下拉刷新
+      wx.stopPullDownRefresh(); //得到数据后停止下拉刷新
     }, 400)
   }
 

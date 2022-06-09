@@ -23,8 +23,12 @@
   </block>
   <block wx:elif="{{jumpValue===1}}">
     <text class="textStyle2">您已领取成功！</text>
+
+    <view class="vanbuttonStyle1">
+      <van-button type="primary" color="#00CC66"  bind:click="jumpMyCard">我的卡包</van-button>
+    </view>
     <view class="vanbuttonStyle">
-      <van-button type="primary" color="#00CC66" round="true" bind:click="jumpVipRights">查看更多</van-button>
+      <van-button type="primary" color="#00CC66"  bind:click="jumpVipRights">查看更多</van-button>
     </view>
 
   </block>

@@ -63,6 +63,20 @@
           "query": "",
           "launchMode": "default",
           "scene": null
+        },
+        {
+          "name": "",
+          "pathName": "pages/card/index",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "",
+          "pathName": "pages/pan_channels/channels_second/index",
+          "query": "activityid=3",
+          "launchMode": "default",
+          "scene": null
         }
       ]
     }

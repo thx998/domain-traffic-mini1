@@ -30,6 +30,11 @@
   color: white;
 }
 
+.vanbuttonStyle1 {
+  top: 880rpx;
+  position: fixed;
+}
+
 .vanbuttonStyle {
   top: 1000rpx;
   position: fixed;

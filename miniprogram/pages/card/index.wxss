@@ -1,6 +1,6 @@
 /* pages/card/index.wxss */
 .container{
-  padding-bottom: 100rpx;
+  padding-bottom: 300rpx;
 }
 .wrap{
   padding: 0 20rpx;

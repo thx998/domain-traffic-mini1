@@ -6,5 +6,5 @@
   },
   "navigationStyle": "custom",
   "disableScroll": false,
-  "enablePullDownRefresh":true
+  "enablePullDownRefresh":false
 }

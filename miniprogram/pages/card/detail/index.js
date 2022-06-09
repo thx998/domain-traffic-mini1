@@ -17,12 +17,18 @@ Page({
     // 获取卡包详情
     const that = this;
     getCardDetail(options.id).then(res => {
-      const { data } = res;
+      console.log(`detailRes-->`,res);
       that.setData({
-        detail: data || { id: options.id }
+        detail: res.data.data || { id: options.id }
       })
     }).catch(err => {
       console.log('err', err);
+    })
+  },
+
+  onClickLeft(){
+    wx.navigateBack({
+      delta:0
     })
   },
 

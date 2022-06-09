@@ -1,5 +1,5 @@
 
-const devHost = 'http://dev.theoxao.com/';
+const devHost = 'https://api.theoxao.com/';
 export const HOST = devHost || 'http://ztc.santiyun.com:9600/';
 export const baseUrl = 'api/platform';
 

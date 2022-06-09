@@ -2,20 +2,29 @@
   <van-nav-bar />
   <van-notify id="van-notify" />
   <image class="imageStyle" src="{{activityDetail.activityPosterUrl}}"></image>
-  <text class="smallTextStyle">{{helpTitle}}</text>
 
-<view class="containerNew">
-<view class="smallBox">
-<text class="textStyle">{{activityDetail.activityPageWelcome}}</text>
-</view>
-<image class="imageStyle1" src="{{activityDetail.channelCodeQrCode}}" show-menu-by-longpress="true"/>
-<view class="smallBox1">
-  <text class="textStyle">{{activityDetail.activityPageWelcome}}</text>
+<block wx:if="{{getPhoneSuccessStatus===false}}">
+  <button class="buttonStyle" open-type="getPhoneNumber" bindgetphonenumber="getPhoneNumber">
+      <text class="textSmallStyle">点击助力</text>
+    </button>
+  </block>
+  <block wx:else>
+    <text class="smallTextStyle">{{helpTitle}}</text>
+  </block>
+
+
+  <view class="containerNew">
+    <view class="smallBox">
+      <text class="textStyle">{{activityDetail.activityPageWelcome}}</text>
+    </view>
+    <image class="imageStyle1" src="{{activityDetail.channelCodeQrCode}}" show-menu-by-longpress="true" />
+    <view class="smallBox1">
+      <text class="textStyle">{{activityDetail.activityPageWelcome}}</text>
+    </view>
   </view>
-</view>
 
-<text class="smallTextStyle1">{{activityDetail.activityPageGuide}}</text>
-<view class="vanbuttonStyle">
-<van-button type="primary" color="#00CC66" round="true" size="small" bind:click="jumpVipRights">查看更多</van-button>
-</view>
+  <text class="smallTextStyle1">{{activityDetail.activityPageGuide}}</text>
+  <view class="vanbuttonStyle">
+    <van-button type="primary" color="#00CC66" round="true" size="small" bind:click="jumpVipRights">查看更多</van-button>
+  </view>
 </view>

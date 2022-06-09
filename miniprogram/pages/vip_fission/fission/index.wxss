@@ -40,3 +40,8 @@
   top:1000rpx;
   position: fixed;
 }
+
+.vanbuttonStyle1{
+  top:880rpx;
+  position: fixed;
+}

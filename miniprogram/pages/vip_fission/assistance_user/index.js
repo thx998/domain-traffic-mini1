@@ -16,11 +16,12 @@ Page({
     jumpValue: 0,
     time: 30 * 60 * 60 * 1000,
     timeData: {},
-    helpId:"",
+    helpId: "",
     phone: "",
     aid: 2,
     helpTitle: "助力成功！",
-    activityDetail: {}
+    activityDetail: {},
+    getPhoneSuccessStatus: false
   },
   onChange(e) {
     this.setData({
@@ -28,6 +29,42 @@ Page({
     });
   },
 
+  // 点击手机号
+
+  getPhoneNumber(e) {
+    console.log(`code-->`, e.detail.code);
+    this.getPhone(e.detail.code)
+  },
+
+  // 获取手机号接口 
+  getPhone(code) {
+    var url = host + globalData['getPhone'] + '?code=' + code;
+    const MM = timeChange();
+    const params = {
+      timestamp: MM.timestamp,
+      sign: MD5(`code${code}timestamp${MM.timestamp}${TOKEN}`)
+    }
+    console.log(`timestamp${MM.timestamp}${TOKEN}`);
+    const options = {
+      url: url,
+      data: params
+    }
+    weq.wxRequest(options).then((res) => {
+      if (!res) {
+        return;
+      }
+
+      if (res.data.code === 200) {
+        console.log(`phone-->`, res.data.data)
+        this.shareSuccess(res.data.data);
+      } else {
+        wx.showToast({
+          title: res.data.msg,
+          icon: "none"
+        })
+      }
+    })
+  },
 
   // 跳转会员权益
   jumpVipRights() {
@@ -41,11 +78,13 @@ Page({
     if (options.helpid != undefined || options.phone != undefined) {
       this.setData({
         helpId: decodeURIComponent(options.helpid),
-        phone: decodeURIComponent(options.phone)
       })
     }
-    console.log(`options.helpid-->`,this.data.helpId);
-    console.log(`options.phone-type-->`,typeof(options.phone));
+    if (options.activityid != null || options.activityid != undefined) {
+      this.setData({
+        aid: JSON.parse(decodeURIComponent(options.activityid))
+      })
+    }
   },
   // 首次Activity接口
   getActivity() {
@@ -81,12 +120,12 @@ Page({
   // 链接初次跳转助力成功
 
   // 分享调用接口
-  shareSuccess() {
-    var url = host + globalData['shareHelpDo'] + '?activityId=' + this.data.aid + '&phone=' + this.data.phone + '&helpId=' + this.data.helpId;
+  shareSuccess(phone) {
+    var url = host + globalData['shareHelpDo'] + '?activityId=' + this.data.aid + '&phone=' + phone + '&helpId=' + this.data.helpId;
     const MM = timeChange();
     const params = {
       timestamp: MM.timestamp,
-      sign: MD5(`activityId${this.data.aid}helpId${this.data.helpId}phone${this.data.phone}timestamp${MM.timestamp}${TOKEN}`)
+      sign: MD5(`activityId${this.data.aid}helpId${this.data.helpId}phone${phone}timestamp${MM.timestamp}${TOKEN}`)
     }
     console.log(`timestamp${MM.timestamp}${TOKEN}`);
     const options = {
@@ -97,25 +136,21 @@ Page({
       if (!res) {
         return;
       }
-      if (res.data.code === 200) {
-
-      } else if (res.data.code === 500) {
         this.setData({
+          getPhoneSuccessStatus: true,
           helpTitle: res.data.msg
-        })
-      }
+        })   
     })
   },
 
   onShow() {
-    this.shareSuccess();
     this.getActivity();
   },
 
-  onPullDownRefresh(){
+  onPullDownRefresh() {
     this.onLoad();
     setTimeout(() => {
-      wx.stopPullDownRefresh();//得到数据后停止下拉刷新
+      wx.stopPullDownRefresh(); //得到数据后停止下拉刷新
     }, 400)
   }
 

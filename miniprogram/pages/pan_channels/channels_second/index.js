@@ -16,7 +16,8 @@ Page({
     jumpValue: 0,
     activityDetail: {},
     aid:2,
-    activityType: ''
+    activityType: '',
+    phone:""
   },
   // 获取手机号点击 
   getPhoneNumber(e) {
@@ -32,6 +33,11 @@ Page({
     }
   },
 
+  jumpMyCard(){
+    wx.reLaunch({
+      url: '../../card/index?phone=' +  this.data.phone,
+    })
+  },
 
 
   // 首次Activity接口
@@ -87,6 +93,9 @@ Page({
 
       if (res.data.code === 200) {
         console.log(`phone-->`, res.data.data)
+        this.setData({
+          phone:res.data.data
+        })
         this.getButtonAsk(res.data.data);
       } else {
         wx.showToast({
@@ -134,8 +143,12 @@ Page({
     })
   },
 
-  onLoad(option) {
-
+  onLoad(options) {
+  if(options.activityid!=null || options.activityid!=undefined){
+    this.setData({
+      aid:options.activityid
+    })
+  }
   },
 
   onShow() {

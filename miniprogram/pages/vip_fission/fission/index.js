@@ -17,7 +17,8 @@ Page({
     aid: 2,
     activityDetail: {},
     helpId: 2,
-    activityType: 1
+    activityType: 1,
+    phone:""
   },
   // 获取手机号点击 
   getPhoneNumber(e) {
@@ -66,7 +67,7 @@ Page({
         }
       } else if (res.data.data.activityType === 2) {
         wx.reLaunch({
-          url: '../../pan_channels/channels_second/index',
+          url: '../../pan_channels/channels_second/index?activityid=' + this.data.aid,
         })
       }
     })
@@ -92,6 +93,9 @@ Page({
 
       if (res.data.code === 200) {
         console.log(`phone-->`, res.data.data)
+        this.setData({
+          phone:res.data.data
+        })
         this.getButtonAsk(res.data.data);
       } else {
         wx.showToast({
@@ -126,11 +130,11 @@ Page({
         // 判断是助力页面还是无助力页面
         if (this.data.helpId != null || this.data.helpId != undefined) {
           wx.navigateTo({
-            url: '../assistance_leader/index?phone=' + encodeURIComponent(JSON.stringify(phone)),
+            url: '../assistance_leader/index?phone=' + encodeURIComponent(JSON.stringify(phone)) + '&activityid=' + encodeURIComponent(JSON.stringify(this.data.aid)),
           })
         } else {
           wx.reLaunch({
-            url: '../assistance_user/index?phone=' + encodeURIComponent(JSON.stringify(phone)) + '&helpid=' + encodeURIComponent(JSON.stringify(this.data.helpId)),
+            url: '../assistance_user/index?phone=' + encodeURIComponent(JSON.stringify(phone)) + '&helpid=' + encodeURIComponent(JSON.stringify(this.data.helpId)) + '&activityid=' + encodeURIComponent(JSON.stringify(this.data.aid)),
           })
         }
       } else {
@@ -149,23 +153,37 @@ Page({
     })
   },
 
+  // 跳转到我的卡包
+
+  jumpMyCard(){
+    wx.reLaunch({
+      url: '../../card/index?phone=' +  this.data.phone,
+    })
+  },
+
   onLoad(option) {
     if (option.externalUserId != undefined && option.externalUserId != null) {
       wx.reLaunch({
         url: '../../register/index',
       })
     } else {
-      if (option.helpid != undefined) {
+      if (option.helpid != undefined || option.helpid != undefined) {
         this.setData({
           helpId: option.helpid
         })
-      }
-      if (option.jumpValue != undefined) {
+      } 
+      if (option.jumpValue != undefined || option.jumpValue != undefined ) {
         this.setData({
           jumpValue: option.jumpValue
         })
+      } 
+      if(option.activityId!=null || option.activityId!=undefined){
+        this.setData({
+          aid:option.activityId
+        })
       }
     }
+   
   },
 
   onShow() {
