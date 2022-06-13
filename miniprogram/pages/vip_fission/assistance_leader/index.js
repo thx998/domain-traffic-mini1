@@ -177,10 +177,10 @@ Page({
   },
 
   onPullDownRefresh() {
-    this.onLoad();
+    this.sHelpDo();
     setTimeout(() => {
       wx.stopPullDownRefresh(); //得到数据后停止下拉刷新
-    }, 400)
+    }, 300)
   }
 
 })

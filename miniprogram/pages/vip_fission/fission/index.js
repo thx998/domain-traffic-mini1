@@ -162,7 +162,7 @@ Page({
   },
 
   onLoad(option) {
-    // option.activityId = "1536250486770933761"
+    option.activityId = "1536250486770933761"
     if (option.externalUserId != undefined && option.externalUserId != null) {
       wx.reLaunch({
         url: '../../register/index',
