@@ -13,7 +13,7 @@
   <view class="status">已使用</view>
 </block>
   <view class="qrcode" >
-    <image src="{{detail.coupon.couponBackground}}"/>
+    <canvas canvas-id="myQRcode"/>
   </view>
   <view class="list">
     <view>名称<text class="list-right">{{detail.coupon.couponName}}</text></view>

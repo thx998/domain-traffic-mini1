@@ -1,7 +1,8 @@
 {
   "pages": [
-    "pages/vip_fission/fission/index",
     "pages/card/index",
+    "pages/vip_fission/fission/index",
+    
     "pages/mine/index",
     "pages/card/detail/index",
    
