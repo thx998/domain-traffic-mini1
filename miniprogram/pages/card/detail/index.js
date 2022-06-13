@@ -1,5 +1,6 @@
 // pages/card/detail/index.js
 import { getCardDetail } from '../../../utils/service';
+import weappQRcode from 'weapp-qrcode';
 Page({
 
   /**
@@ -7,6 +8,7 @@ Page({
    */
   data: {
     detail: {},
+    qrcodeUrl: '',
   },
 
   /**
@@ -20,6 +22,13 @@ Page({
       console.log(`detailRes-->`,res);
       that.setData({
         detail: res.data.data || { id: options.id }
+      })
+      const { couponDetail: { couponDetailCode = '无效优惠券' } = {} } = res.data.data || {};
+      new weappQRcode({
+        width: 100,
+        height: 100,
+        canvasId: 'myQRcode',
+        text: couponDetailCode
       })
     }).catch(err => {
       console.log('err', err);
