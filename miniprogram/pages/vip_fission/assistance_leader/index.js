@@ -151,7 +151,7 @@ Page({
   onShareAppMessage() {
     return {
       title: this.data.helpDetail.activityShareTitle,
-      path: "pages/vip_fission/assistance_user/index?helpid=" + encodeURIComponent(this.data.helpId) + '&activityid=' + encodeURIComponent(this.data.aid),
+      path: "pages/vip_fission/assistance_user/index?helpid=" + this.data.helpId + '&activityid=' + this.data.aid,
       imageUrl: this.data.helpDetail.activityShareIcon,
       success: function (res) {
         // 转发成功之后的回调

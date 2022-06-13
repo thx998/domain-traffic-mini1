@@ -77,12 +77,12 @@ Page({
     console.log(`options-->`, options);
     if (options.helpid != undefined || options.phone != undefined) {
       this.setData({
-        helpId: decodeURIComponent(options.helpid),
+        helpId: options.helpid,
       })
     }
     if (options.activityid != null || options.activityid != undefined) {
       this.setData({
-        aid: JSON.parse(decodeURIComponent(options.activityid))
+        aid:options.activityid
       })
     }
   },
