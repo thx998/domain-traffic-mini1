@@ -127,6 +127,9 @@ Page({
     // if(option.phone!=undefined || option.phone!="" ){
     //   this.getHelpDetail(option.phone);
     // }
+    this.setData({
+      aid: JSON.parse(decodeURIComponent(options.activityid))
+    })
     if (options.phone != undefined || options.phone != null) {
       const newPhone = JSON.parse(decodeURIComponent(options.phone))
       this.getHelpDetail(newPhone);
@@ -135,11 +138,7 @@ Page({
       });
       this.sHelpDo();
     }
-    if (options.activityid != null || options.activityid != undefined) {
-      this.setData({
-        aid: JSON.parse(decodeURIComponent(options.activityid))
-      })
-    }
+   
   },
   onShow() {
     if (this.data.helpDetail.activityHelp - this.data.helpDetail.helpedCount === 0) {

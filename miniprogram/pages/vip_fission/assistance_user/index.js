@@ -136,10 +136,16 @@ Page({
       if (!res) {
         return;
       }
+      if(res.data.code===200){
+        this.setData({
+          getPhoneSuccessStatus: true,
+        })   
+      }else{
         this.setData({
           getPhoneSuccessStatus: true,
           helpTitle: res.data.msg
         })   
+      }
     })
   },
 
