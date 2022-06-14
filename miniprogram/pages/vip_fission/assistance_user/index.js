@@ -33,7 +33,17 @@ Page({
 
   getPhoneNumber(e) {
     console.log(`code-->`, e.detail.code);
-    this.getPhone(e.detail.code)
+    console.log(`code-->`, e.detail.code);
+    console.log(e);
+    if (e.detail.encryptedData != undefined ) {
+      //调用接口利用 e.detail.encryptedData, e.detail.iv 信息来解密手机号
+      this.getPhone(e.detail.code)
+    }
+    // 拒绝授权
+    else {
+
+    }
+  
   },
 
   // 获取手机号接口 
