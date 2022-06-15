@@ -33,7 +33,17 @@ Page({
 
   getPhoneNumber(e) {
     console.log(`code-->`, e.detail.code);
-    this.getPhone(e.detail.code)
+    console.log(`code-->`, e.detail.code);
+    console.log(e);
+    if (e.detail.encryptedData != undefined ) {
+      //调用接口利用 e.detail.encryptedData, e.detail.iv 信息来解密手机号
+      this.getPhone(e.detail.code)
+    }
+    // 拒绝授权
+    else {
+
+    }
+  
   },
 
   // 获取手机号接口 
@@ -77,12 +87,12 @@ Page({
     console.log(`options-->`, options);
     if (options.helpid != undefined || options.phone != undefined) {
       this.setData({
-        helpId: decodeURIComponent(options.helpid),
+        helpId: options.helpid,
       })
     }
     if (options.activityid != null || options.activityid != undefined) {
       this.setData({
-        aid: JSON.parse(decodeURIComponent(options.activityid))
+        aid:options.activityid
       })
     }
   },
@@ -136,10 +146,16 @@ Page({
       if (!res) {
         return;
       }
+      if(res.data.code===200){
+        this.setData({
+          getPhoneSuccessStatus: true,
+        })   
+      }else{
         this.setData({
           getPhoneSuccessStatus: true,
           helpTitle: res.data.msg
         })   
+      }
     })
   },
 

@@ -127,6 +127,9 @@ Page({
     // if(option.phone!=undefined || option.phone!="" ){
     //   this.getHelpDetail(option.phone);
     // }
+    this.setData({
+      aid: JSON.parse(decodeURIComponent(options.activityid))
+    })
     if (options.phone != undefined || options.phone != null) {
       const newPhone = JSON.parse(decodeURIComponent(options.phone))
       this.getHelpDetail(newPhone);
@@ -135,11 +138,7 @@ Page({
       });
       this.sHelpDo();
     }
-    if (options.activityid != null || options.activityid != undefined) {
-      this.setData({
-        aid: JSON.parse(decodeURIComponent(options.activityid))
-      })
-    }
+   
   },
   onShow() {
     if (this.data.helpDetail.activityHelp - this.data.helpDetail.helpedCount === 0) {
@@ -152,7 +151,7 @@ Page({
   onShareAppMessage() {
     return {
       title: this.data.helpDetail.activityShareTitle,
-      path: "pages/vip_fission/assistance_user/index?helpid=" + encodeURIComponent(this.data.helpId) + '&activityid=' + encodeURIComponent(this.data.aid),
+      path: "pages/vip_fission/assistance_user/index?helpid=" + this.data.helpId + '&activityid=' + this.data.aid,
       imageUrl: this.data.helpDetail.activityShareIcon,
       success: function (res) {
         // 转发成功之后的回调
@@ -178,10 +177,10 @@ Page({
   },
 
   onPullDownRefresh() {
-    this.onLoad();
+    this.sHelpDo();
     setTimeout(() => {
       wx.stopPullDownRefresh(); //得到数据后停止下拉刷新
-    }, 400)
+    }, 300)
   }
 
 })

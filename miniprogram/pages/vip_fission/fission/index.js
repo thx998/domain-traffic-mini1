@@ -18,13 +18,21 @@ Page({
     activityDetail: {},
     helpId: 2,
     activityType: 1,
-    phone:""
+    phone: ""
   },
   // 获取手机号点击 
   getPhoneNumber(e) {
     console.log(`code-->`, e.detail.code);
+    console.log(e);
+    if (e.detail.encryptedData != undefined ) {
+      //调用接口利用 e.detail.encryptedData, e.detail.iv 信息来解密手机号
+      this.getPhone(e.detail.code)
+    }
+    // 拒绝授权
+    else {
 
-    this.getPhone(e.detail.code)
+    }
+
 
   },
   // 首次Activity接口
@@ -94,7 +102,7 @@ Page({
       if (res.data.code === 200) {
         console.log(`phone-->`, res.data.data)
         this.setData({
-          phone:res.data.data
+          phone: res.data.data
         })
         this.getButtonAsk(res.data.data);
       } else {
@@ -114,6 +122,9 @@ Page({
       timestamp: MM.timestamp,
       sign: MD5(`activityId${this.data.aid}activityType${this.data.activityType}phone${phone}timestamp${MM.timestamp}${TOKEN}`)
     }
+    console.log(`mad5before111-->`, `activityId${"1536250486770933761"}activityType${1}phone${15057103453}timestamp${1655110228}${TOKEN}`);
+    console.log(`mad5-->`, MD5(`activityId${"1536250486770933761"}activityType${1}phone${15057103453}timestamp${1655110228}${TOKEN}`));
+
     const options = {
       url: url,
       data: params
@@ -155,13 +166,14 @@ Page({
 
   // 跳转到我的卡包
 
-  jumpMyCard(){
+  jumpMyCard() {
     wx.reLaunch({
-      url: '../../card/index?phone=' +  this.data.phone,
+      url: '../../card/index?phone=' + this.data.phone,
     })
   },
 
   onLoad(option) {
+    // option.activityId = "1536250486770933761"
     if (option.externalUserId != undefined && option.externalUserId != null) {
       wx.reLaunch({
         url: '../../register/index',
@@ -171,19 +183,19 @@ Page({
         this.setData({
           helpId: option.helpid
         })
-      } 
-      if (option.jumpValue != undefined || option.jumpValue != undefined ) {
+      }
+      if (option.jumpValue != undefined || option.jumpValue != undefined) {
         this.setData({
           jumpValue: option.jumpValue
         })
-      } 
-      if(option.activityId!=null || option.activityId!=undefined){
+      }
+      if (option.activityId != null || option.activityId != undefined) {
         this.setData({
-          aid:option.activityId
+          aid: option.activityId
         })
       }
     }
-   
+
   },
 
   onShow() {

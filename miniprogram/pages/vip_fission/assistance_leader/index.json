@@ -6,7 +6,5 @@
     "van-count-down": "@vant/weapp/count-down/index"
   },
   "navigationStyle": "custom",
-  "enablePullDownRefresh":false
-  
-  
+  "enablePullDownRefresh": true
 }
