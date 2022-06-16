@@ -1,0 +1,15 @@
+<!--pages/mine/info/index.wxml-->
+<view class="container">
+  <view class="list-item">
+    头像
+    <text>18662170962</text>
+  </view>
+  <view class="list-item">
+    昵称
+    <text>18662170962</text>
+  </view>
+  <view class="list-item">
+    手机号
+    <text>18662170962</text>
+  </view>
+</view>

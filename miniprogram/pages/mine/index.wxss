@@ -1,10 +1,42 @@
 /* pages/mine/index.wxss */
+
+.container{
+  padding: 0;
+  background-color: #fcfcfc;
+  min-height: 100vh;
+}
+.info{
+  display: flex;
+  align-items: center;
+  padding: 30rpx;
+  background-color: #fff;
+}
+
+.avatar{
+  width: 100rpx;
+  height: 100rpx;
+  border-radius: 100rpx;
+  border: 1px solid #eee;
+  margin-right: 20rpx;
+  overflow: hidden;
+}
+
+.info-name{
+  padding-bottom: 10rpx;
+}
+
+.list-wrap{
+  margin-top: 30rpx;
+  background-color: #fff;
+  padding-left: 50rpx;
+}
+
 .list-item{
   display: flex;
   font-size: 32rpx;
-  border-bottom: 1rpx solid #eee;
   align-items: center;
-  padding: 30rpx 0;
+  padding: 30rpx;
+  background-color: #fff;
 }
 .list-item>text, .list-item>view{
   flex: 1;
@@ -19,4 +51,18 @@
   position: absolute;
   right: 0;
   top: -33rpx;
+}
+
+.more-wrap{
+  flex: 1;
+  text-align: right;
+}
+
+.more{
+  width: 20rpx;
+  height: 20rpx;
+  border-right: 2px solid #eee;
+  border-bottom: 2px solid #eee;
+  transform: rotate(-45deg);
+  display: inline-block;
 }

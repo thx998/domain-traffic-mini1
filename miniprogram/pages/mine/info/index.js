@@ -1,5 +1,4 @@
-// pages/mine/index.js
-const app = getApp();
+// pages/mine/info/index.js
 Page({
 
   /**
@@ -7,17 +6,6 @@ Page({
    */
   data: {
 
-  },
-
-  getUserProfile(e) {
-    
-  },
-
-  handleToCard: function() {
-    console.log('card');
-    wx.switchTab({
-      url: '../card/index',
-    })
   },
 
   /**
@@ -38,9 +26,7 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow() {
-    this.getTabBar().setData({
-      active: 1,
-    });
+
   },
 
   /**

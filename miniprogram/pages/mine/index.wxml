@@ -1,15 +1,20 @@
 <!--pages/mine/index.wxml-->
 <view class="container">
-  <view class="list-item">
-    头像
-    <view><image/></view>
-  </view>
-  <view class="list-item">
-    昵称
-    <text>啊哈</text>
-  </view>
-  <view class="list-item">
-    手机号
-    <text>18662170962</text>
+  <van-nav-bar title="我的"/>
+  <navigator url="./info/index">
+    <view class="info">
+      <view class="avatar"><open-data type="userAvatarUrl"></open-data></view>
+      <view>
+        <view class="info-name"><open-data type="userNickName"></open-data></view>
+        <view>手机号：18662170962</view>
+      </view>
+      <view class="more-wrap"><text class="more"></text></view>
+    </view>
+  </navigator>
+  <view class="list-wrap">
+    <view class="list-item" bindtap="handleToCard">
+        卡包
+        <view class="more-wrap"><text class="more"></text></view>
+      </view>
   </view>
 </view>

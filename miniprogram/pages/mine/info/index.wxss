@@ -1,0 +1,22 @@
+/* pages/mine/info/index.wxss */
+.list-item{
+  display: flex;
+  font-size: 32rpx;
+  border-bottom: 1rpx solid #eee;
+  align-items: center;
+  padding: 30rpx 0;
+}
+.list-item>text, .list-item>view{
+  flex: 1;
+  text-align: right;
+  position: relative;
+}
+.list-item image{
+  width: 60rpx;
+  height: 60rpx;
+  border-radius: 100%;
+  border: 1rpx solid #eee;
+  position: absolute;
+  right: 0;
+  top: -33rpx;
+}
