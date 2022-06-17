@@ -31,7 +31,7 @@ Page({
         canvasId: 'myQRcode',
         text: couponDetailCode
       })
-      wxbarcode.barcode('myBARcode', 'dddd', 750, 150)
+      wxbarcode.barcode('myBARcode', couponDetailCode, 750, 150)
     }).catch(err => {
       console.log('err', err);
     })
