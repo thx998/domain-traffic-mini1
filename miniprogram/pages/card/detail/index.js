@@ -1,6 +1,7 @@
 // pages/card/detail/index.js
 import { getCardDetail } from '../../../utils/service';
 import weappQRcode from 'weapp-qrcode';
+import wxbarcode from 'wxbarcode';
 Page({
 
   /**
@@ -25,11 +26,12 @@ Page({
       })
       const { couponDetail: { couponDetailCode = '无效优惠券' } = {} } = res.data.data || {};
       new weappQRcode({
-        width: 100,
-        height: 100,
+        width: 150,
+        height: 150,
         canvasId: 'myQRcode',
         text: couponDetailCode
       })
+      wxbarcode.barcode('myBARcode', 'dddd', 750, 150)
     }).catch(err => {
       console.log('err', err);
     })

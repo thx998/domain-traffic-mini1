@@ -12,9 +12,12 @@
 <block wx:elif="{{detail.couponDetail.couponDetailStatus===3}}">
   <view class="status">已使用</view>
 </block>
+<view class="block"></view>
   <view class="qrcode" >
-    <canvas canvas-id="myQRcode"/>
+    <view class="myBARcodeWrap"><canvas canvas-id="myBARcode" class="myBARcode" /></view>
+    <canvas canvas-id="myQRcode" class="myQRcode"  />
   </view>
+  <view class="block"></view>
   <view class="list">
     <view>名称<text class="list-right">{{detail.coupon.couponName}}</text></view>
     <view>面值<text class="list-right">{{detail.coupon.couponPar || ''}}元</text></view>

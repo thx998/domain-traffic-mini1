@@ -12,6 +12,7 @@
     "@vant/weapp": "^1.10.3",
     "js-md5": "^0.7.3",
     "pretty-ms": "^7.0.1",
-    "weapp-qrcode": "^1.0.0"
+    "weapp-qrcode": "^1.0.0",
+    "wxbarcode": "^1.0.2"
   }
 }
