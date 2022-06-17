@@ -23,7 +23,7 @@ Component({
                 'text': "卡包"
             },
             {
-                'url': "/pages/mine/index",
+                'url': "/pages/mine/index2",
                 // icon: "https://test-1304306051.cos.ap-shanghai.myqcloud.com/image/1e2214f283421b0b3dbab252192ff405.png",
                 'icon':  {
                     normal: 'https://test-1304306051.cos.ap-shanghai.myqcloud.com/image/0d5158bad20288f1a514370109a3148f.png',

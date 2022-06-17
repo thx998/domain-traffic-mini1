@@ -1,11 +1,13 @@
 <view class="container">
   <van-nav-bar title="我的卡包"/>
-  <navigator class="list" wx:for="{{list}}" wx:key="index" url="./detail/index?id={{item.id}}"  style="background-image: url({{item.coupon.couponBackground}});">
+  <navigator class="list" wx:for="{{list}}" wx:key="index" url="./detail/index?id={{item.id}}" >
     <view class="list-content" >
       <image class="list-logo" src="{{item.tenantLogo}}"/>
-      <view>
-        <text>{{item.coupon.couponName}}</text>
-        <block wx:if="{{item.couponDetail.couponDetailStatus===1}}">
+      <view class="list-title">
+        <text class="list-titleName">{{item.coupon.couponName}}</text>
+        <text>{{item.couponDetail.couponDetailCode}}</text>
+      </view>
+      <block wx:if="{{item.couponDetail.couponDetailStatus===1}}">
         <text class="list-status">待领取</text>
       </block>
       <block wx:elif="{{item.couponDetail.couponDetailStatus===2}}">
@@ -14,11 +16,10 @@
       <block wx:elif="{{item.couponDetail.couponDetailStatus===3}}">
         <text class="list-status">已使用</text>
       </block>
-      </view>
     </view>
     <view class="list-info">
       <text>{{item.tenantName}}</text>
-      <text class="list-date">有效期至：{{item.coupon.couponEndTime}}</text>
+      <text class="list-date">有效期至：{{item.coupon.couponEndTime || ''}}</text>
     </view>
   </navigator>
 </view>

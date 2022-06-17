@@ -1,0 +1,38 @@
+<!--pages/mine/index2.wxml-->
+<van-nav-bar title="我的"/>
+<view class="wrap">
+  <view class="banner">
+    <image src="./img/banner.png" />
+  </view>
+  <view class="info">
+    <block wx:if="{{hasUserInfo}}">
+      <view class="avatar"><image src="{{userInfo.avatarUrl}}" /></view>
+      <view>
+        <view class="info-name">{{userInfo.nickName}}</view>
+      </view>
+    </block>
+    <block wx:else>
+      <view class="avatar"><image/></view>
+      <view>
+        <view class="info-name">
+          <button bindtap="getUserProfile"> 授权登录 </button>
+        </view>
+        <!-- <view>手机号：18662170962</view> -->
+      </view>
+    </block>
+  </view>
+  <view class="tab">
+    <view class="tab-item">
+      <text>会员商城</text>
+      <image src="./img/vip_icon.png"/>
+    </view>
+    <view class="tab-item">
+      <text>积分签到</text>
+      <image src="./img/integral_icon.png" />
+    </view>
+    <view class="tab-item" bindtap="handleToCard">
+      <text>我的优惠券</text>
+      <image src="./img/coupon_icon.png" />
+    </view>
+  </view>
+</view>

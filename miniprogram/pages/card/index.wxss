@@ -1,6 +1,7 @@
 /* pages/card/index.wxss */
 .container{
   padding-bottom: 300rpx;
+  background-color: #F5F5F5;
 }
 .wrap{
   padding: 0 20rpx;
@@ -11,9 +12,9 @@
   display: flex;
   flex-direction: column;
   margin-bottom: 20rpx;
-  border: 1rpx solid #ddd;
-  border-radius: 10rpx;
+  border-radius: 16rpx;
   padding: 0 15rpx;
+  background-color: #fff;
 }
 .list-content{
   border-bottom: 1rpx solid #ddd;
@@ -29,11 +30,23 @@
   border: 1px solid #ddd;
   margin-right: 10rpx;
 }
+.list-title{
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
 .list-status{
-  position: absolute;
-  top: 10rpx;
-  right: 10rpx;
   font-size: 28rpx;
+  padding: 5rpx 10rpx;
+  background-color: #36AAEF;
+  color: #fff;
+  border-radius: 6rpx;
+}
+.list-titleName{
+  padding-bottom: 10rpx;
+  max-width: 80%;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 .list-info{
   padding: 10rpx 0;
