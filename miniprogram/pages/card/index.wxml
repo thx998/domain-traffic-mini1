@@ -19,7 +19,7 @@
     </view>
     <view class="list-info">
       <text>{{item.tenantName}}</text>
-      <text class="list-date">有效期至：{{item.coupon.couponEndTime || '不明'}}</text>
+      <text class="list-date">有效期至：{{item.coupon.couponEndTime || ''}}</text>
     </view>
   </navigator>
 </view>

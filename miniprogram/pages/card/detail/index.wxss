@@ -34,7 +34,7 @@
 
 .list{
   font-size: 30rpx;
-  padding: 0 20rpx;
+  padding: 0 30rpx;
 }
 .list>view{
   padding: 7rpx 0;
