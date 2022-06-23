@@ -19,8 +19,8 @@
   </view>
   <view class="block"></view>
   <view class="list">
-    <view>名称<text class="list-right">{{detail.coupon.couponName}}</text></view>
-    <view>面值<text class="list-right">{{detail.coupon.couponPar || ''}}元</text></view>
-    <view>有效期<text class="list-right">{{detail.coupon.couponEndTime || ''}}</text></view>
+    <view>名称<text class="list-right">{{detail.coupon.couponName || '不明'}}</text></view>
+    <view>面值<text class="list-right">{{detail.coupon.couponPar || '不明'}}元</text></view>
+    <view>有效期<text class="list-right">{{detail.coupon.couponEndTime || '不明'}}</text></view>
   </view>
 </view>
