@@ -1,4 +1,4 @@
-<view class="newColumn">
+<!-- <view class="newColumn">
   <van-nav-bar />
   <van-notify id="van-notify" />
 
@@ -15,11 +15,11 @@
       </view>
       <image class="imageStyle1" src="{{activityDetail.channelCodeQrCode}}" show-menu-by-longpress="true" />
       <view class="smallBox1">
-        <text class="textStyle">{{activityDetail.activityPageWelcome}}</text>
+        <text class="textStyle">{{activityDetail.activityPageGuide}}</text>
       </view>
     </view>
 
-    <text class="smallTextStyle1">{{activityDetail.activityPageGuide}}</text>
+    <text class="smallTextStyle1">添加企微好友领取新人好礼</text>
   </block>
   <block wx:elif="{{jumpValue===1}}">
     <text class="textStyle2">您已领取成功！</text>
@@ -34,4 +34,53 @@
   </block>
 
 
+</view> -->
+
+
+
+<view class="newColumn">
+  <van-nav-bar title="{{activityDetail.activityPageTitle}}" bind:click-left="onClickLeft">
+  </van-nav-bar>
+
+  <view class="newColumn1">
+    <view style="height: {{activityPosterSeat===1 ? '400rpx': '0'}};"></view>
+  <image class="imageStyle" style="height: {{activityPosterSeat===1 ? '400rpx' : '100%'}};" src="{{activityDetail.activityPosterUrl}}"></image>
+  <block wx:if="{{jumpValue===0}}">
+  <button class="buttonStyle" open-type="getPhoneNumber" bindgetphonenumber="getPhoneNumber">
+      <text class="textSmallStyle">我要领取</text>
+    </button>
+
+
+<view class="smallColumn">
+  <view class="containerNew" style="background-color: {{ activityPosterSeat===1 ? '#F5F5F5' : 'transparent'}};">
+    <view class="smallBox">
+      <text class="textStyle">{{activityDetail.activityPageWelcome}}</text>
+    </view>
+    <image class="imageStyle1" src="{{activityDetail.channelCodeQrCode}}" show-menu-by-longpress="true" />
+    <view class="smallBox1">
+      <text class="textStyle">{{activityDetail.activityPageGuide}}</text>
+    </view>
+  </view>
+
+  <text class="smallTextStyle1">添加企微好友领取新人好礼</text>
+  <view class="vanbuttonStyle">
+    <!-- <button  color="#F5F5F5" type="default" bindtap="jumpVipRights" class="bottomButtonStyle">
+   <text style="font-size: 32rpx;color: #999999;">查看更多</text>
+    </button> -->
+  </view>
+</view>
+</block>
+  <block wx:elif="{{jumpValue===1}}">
+    <text class="textStyle1">您已领取成功！</text>
+
+    <button class="buttonStyle11"  bindtap="jumpMyCard">
+      <text class="textSmallStyle11">我的卡包</text>
+    </button>
+    <button class="buttonStyle22" bindtap="jumpVipRights">
+      <text class="textSmallStyle11">查看更多</text>
+    </button>
+  </block>
+
+
+</view>
 </view>

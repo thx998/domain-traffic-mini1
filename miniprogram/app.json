@@ -1,10 +1,10 @@
 {
   "pages": [
+    "pages/vip_fission/fission/index",
     "pages/card/index",
     "pages/mine/index2",
     "pages/mine/index",
     "pages/mine/info/index",
-    "pages/vip_fission/fission/index",
     "pages/card/detail/index",
     "pages/pan_channels/channels/index",
     "pages/vip_fission/assistance_leader/index",

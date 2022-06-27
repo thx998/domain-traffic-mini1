@@ -1,13 +1,16 @@
 <!--pages/vip/detail/index.wxml-->
 <view class="container">
-  <view class="img">
-    <image src="./example.png" mode="aspectFit" />
+  <van-nav-bar title="{{helpDetail.activityPageTitle}}" bind:click-left="onClickLeft">
+    <text style="font-size: 32rpx;font-weight: 500;" slot="left">返回</text>
+  </van-nav-bar>
+  <view style="display: flex;flex-direction: column;align-items: center;">
+
+    <image src="./example.png" class="imageStyle" />
+
+    <view class="center title">会员注册成功</view>
+    <view class="text center">{{time + '秒后可点击跳转到福利页面'}}</view>
+    <button class="{{disabled===false ? 'buttonStyle' : 'buttonStyle1'}}" bindtap="{{disabled===false ? 'handleNav' :''}}" disabled="{{ disabled }}">
+      <text style="font-size: 40rpx;color: {{disabled===false ? '#FFFFFF' : 'D2D2D2'}};">我要福利</text>
+    </button>
   </view>
-  <view class="center title">会员注册成功</view>
-  <view class="text center">{{time + '秒后跳转到福利页面'}}</view>
-  <button
-    class="btn active"
-    bindtap="handleNav"
-    disabled="{{ false }}"
-  >我要福利</button>
 </view>

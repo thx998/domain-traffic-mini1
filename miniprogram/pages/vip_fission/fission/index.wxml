@@ -1,7 +1,8 @@
 <view class="newColumn">
-  <van-nav-bar />
-  <van-notify id="van-notify" />
-  <image class="imageStyle" src="{{activityDetail.activityPosterUrl}}"></image>
+  <van-nav-bar title="{{activityDetail.activityPageTitle}}" bind:click-left="onClickLeft">
+  </van-nav-bar>
+  <view class="newColumn1">
+  <image class="imageStyle" style="height: {{activityPosterSeat===1 ? '450rpx' : '100%'}};" src="{{activityDetail.activityPosterUrl}}"></image>
   <block wx:if="{{jumpValue===0}}">
     <button class="buttonStyle" open-type="getPhoneNumber" bindgetphonenumber="getPhoneNumber">
       <text class="textSmallStyle">我要领取</text>
@@ -10,13 +11,20 @@
   <block wx:elif="{{jumpValue===1}}">
     <text class="textStyle">您已领取成功！</text>
 
-    <view class="vanbuttonStyle1">
-      <van-button type="primary" color="#00CC66"  bind:click="jumpMyCard">我的卡包</van-button>
+    <!-- <view class="buttonStyle2">
+      <button   bind:click="jumpMyCard">我的卡包</button>
     </view>
-    <view class="vanbuttonStyle">
-      <van-button type="primary" color="#00CC66"  bind:click="jumpVipRights">查看更多</van-button>
-    </view>
+    <view class="buttonStyle1">
+      <button  bind:click="jumpVipRights">查看更多</button>
+    </view> -->
+    <button class="buttonStyle1"  bindtap="jumpMyCard">
+      <text class="textSmallStyle">我的卡包</text>
+    </button>
+    <button class="buttonStyle2" bindtap="jumpVipRights">
+      <text class="textSmallStyle">查看更多</text>
+    </button>
   </block>
 
+</view>
 
 </view>

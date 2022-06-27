@@ -1,9 +1,11 @@
 <view class="newColumn">
-  <van-nav-bar />
-  <van-notify id="van-notify" />
-  <image class="imageStyle" src="{{activityDetail.activityPosterUrl}}"></image>
+  <van-nav-bar title="{{activityDetail.activityPageTitle}}" bind:click-left="onClickLeft">
+  </van-nav-bar>
 
-<block wx:if="{{getPhoneSuccessStatus===false}}">
+  <view class="newColumn1">
+    <view style="height: {{activityPosterSeat===1 ? '450rpx': '0'}};"></view>
+  <image class="imageStyle" style="height: {{activityPosterSeat===1 ? '450rpx' : '100vh'}};" src="{{activityDetail.activityPosterUrl}}"></image>
+ <block wx:if="{{getPhoneSuccessStatus===false}}">
   <button class="buttonStyle" open-type="getPhoneNumber" bindgetphonenumber="getPhoneNumber">
       <text class="textSmallStyle">点击助力</text>
     </button>
@@ -12,19 +14,23 @@
     <text class="smallTextStyle">{{helpTitle}}</text>
   </block>
 
-
-  <view class="containerNew">
-    <view class="smallBox">
+<view class="smallColumn">
+  <view class="containerNew" style="background-color: {{ activityPosterSeat===1 ? '#F5F5F5' : 'transparent'}};">
+    <view class="smallBox" >
       <text class="textStyle">{{activityDetail.activityPageWelcome}}</text>
     </view>
     <image class="imageStyle1" src="{{activityDetail.channelCodeQrCode}}" show-menu-by-longpress="true" />
     <view class="smallBox1">
-      <text class="textStyle">{{activityDetail.activityPageWelcome}}</text>
+      <text class="textStyle">{{activityDetail.activityPageGuide}}</text>
     </view>
   </view>
 
-  <text class="smallTextStyle1">{{activityDetail.activityPageGuide}}</text>
+  <text class="smallTextStyle1">添加企微好友领取新人好礼</text>
   <view class="vanbuttonStyle">
-    <van-button type="primary" color="#00CC66" round="true" size="small" bind:click="jumpVipRights">查看更多</van-button>
+    <button  color="#F5F5F5" type="default" bindtap="jumpVipRights" class="bottomButtonStyle">
+   <text style="font-size: 32rpx;color: #999999;">查看更多</text>
+    </button>
   </view>
+</view>
+</view>
 </view>

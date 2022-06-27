@@ -115,6 +115,7 @@ Page({
       }
       this.setData({
         activityDetail: res.data.data,
+        activityPosterSeat:res.data.data.activityPosterSeat
       })
       console.log(res.data.data);
       Notify({

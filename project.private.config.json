@@ -77,6 +77,13 @@
           "query": "activityid=3",
           "launchMode": "default",
           "scene": null
+        },
+        {
+          "name": "",
+          "pathName": "pages/register-success/index",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
         }
       ]
     }

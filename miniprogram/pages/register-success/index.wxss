@@ -2,6 +2,7 @@
 
 .title{
   font-size: 36rpx;
+  margin-top: 32rpx;
 }
 .text{
   font-size: 26rpx;
@@ -13,8 +14,29 @@
 }
 
 .container{
-  display: flex;
-  flex-direction: column;
-  align-items: center;
   height: 100vh;
+  width: 100vw;
+}
+
+.imageStyle{
+  width: 650rpx;
+  height: 210rpx;
+  background-color: blue;
+}
+
+page{
+  background-color: #F5F5F5;
+}
+
+
+.buttonStyle{
+  background-color:#FF6430 ;
+  margin-top: 80rpx;
+  width: 680rpx;
+}
+
+.buttonStyle1{
+  background-color:#bbb0ad ;
+  margin-top: 80rpx;
+  width: 680rpx;
 }

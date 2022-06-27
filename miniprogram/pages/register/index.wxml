@@ -1,10 +1,11 @@
 <!--index.wxml-->
-<view class="container wrap">
+<view class="newContainer">
   <van-nav-bar
   title="协议与政策"
 />
-  <view class="h1">用户协议和隐私政策</view>
+<view class="h1">用户协议和隐私政策</view>
   <view class="section">
+   
     <text class="text">
     《用户服务协议和隐私政策》（以下简称"协议"）及其条款;在注册前务必认真阅读本协议的内容、充分理解各条款内容，如有异议，您可选择不进入本软件。一旦您确认本用户注册协议后，本协议即在您和本软件之间产牛法律效力，意味着您完全同意并接受协议的全部条款。请您审慎阅读并选择接受或不接受协议<text class="warn">（未成年人应在法定监护人陪同下阅读）</text>。
 
@@ -195,15 +196,15 @@ App 上提供以下方式帮助您删除您在本软件上发布的信息。您�
     </view>
     <view class="bottom">
       <button 
-        class="agree btn active"
-        type="primary"
+        class="buttonStyle"
         size="default"
         open-type="getPhoneNumber"
         disabled="{{ disabled }}"
         bindtap="handleAgree"
         bindgetphonenumber="getPhoneNumber"
       >
-        {{ '我同意' + (time < 1 ? '' : '(' + time + ')') }}
+      <text style="color:{{disabled===false ? '#FFFFFF' : 'D2D2D2'}};">  {{ '我同意' + (time < 1 ? '' : '(' + time + ')') }}</text>
+      
       </button>
       <button bindtap="handleDisagree" class="disagree btn">不同意</button>
     </view>

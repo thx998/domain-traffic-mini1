@@ -14,8 +14,22 @@ Page({
   data: {
     disabled: true,
     time: 5,
+    externalUserId: '',
+    activityId: '',
+    userId: ''
   },
-  onLoad() {
+  onLoad(options) {
+    // options.externalUserId = 'wmwuRgEQAAwR9GnLd6dtX_RuNbnM2ltQ'
+    // options.userId = '1536915740580478978',
+    // options.activityId = 2
+    if (options.externalUserId != undefined && options.userId != undefined && options.activityId != undefined) {
+      this.setData({
+        externalUserId: options.externalUserId,
+        activityId: options.activityId,
+        userId: options.userId
+      })
+    }
+
     const _this = this;
     const timer = setInterval(function() {
       _this.setData({
@@ -79,8 +93,8 @@ Page({
         return;
       }
       if (res.data.code === 200) {
-        wx.reLaunch({
-          url: '../register-success/index',
+        wx.navigateTo({
+          url: '../register-success/index?externaluserid=' + this.data.externalUserId + '&activityid=' + this.data.activityId + '&userid=' + this.data.userId,
         })
       } else {
         wx.showToast({

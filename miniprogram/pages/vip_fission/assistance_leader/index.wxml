@@ -1,8 +1,10 @@
 <view class="newColumn">
-  <van-nav-bar />
-  <van-notify id="van-notify" />
+  <van-nav-bar title="{{helpDetail.activityPageTitle}}" bind:click-left="onClickLeft">
+    <text style="font-size: 32rpx;font-weight: 500;"  slot="left">返回</text>
+  </van-nav-bar>
 
-  <image class="imageStyle" src="{{helpDetail.activityPosterUrl}}"></image>
+<view class="newColumn1">
+  <image class="imageStyle" style="height: {{activityPosterSeat===1 ? '450rpx' : '100%'}};" src="{{helpDetail.activityPosterUrl}}"></image>
 
   <view class="newTextRowStyle">
     <block wx:if="{{actStatus===true}}">
@@ -12,7 +14,7 @@
         <text class="textItem">天</text>
         <text class="item1">{{ timeData.hours }}</text>
         <text class="textItem">时</text>
-        <text class="item2">{{ timeData.minutes }}</text>
+        <text class="item1">{{ timeData.minutes }}</text>
         <text class="textItem">分</text>
         <!-- <text class="item3">{{ timeData.seconds }}</text> -->
       </van-count-down>
@@ -39,10 +41,11 @@
     </button>
   </block>
 
- 
   <view style="display: flex;flex-direction: row;align-items: center;flex-wrap: wrap; position: fixed;top:1150rpx;left:48rpx;right: 32rpx;">
     <block wx:for="{{avatarArray}}">
-  <image style="width: 80rpx;height: 80rpx;border-radius: 48rpx;margin-right: 8rpx;margin-bottom: 8rpx;" src="https://test-1304306051.cos.ap-shanghai.myqcloud.com/image/e21b018587aefcc7e86428f907576300.png"></image>
+  <image style="width: 80rpx;height: 80rpx;border-radius: 48rpx;margin-right: 16rpx;margin-bottom: 8rpx;" src="../assistance_leader/assets/avatar.png"></image>
 </block>
+</view>
+
 </view>
 </view>

@@ -31,6 +31,12 @@ Page({
     });
   },
 
+  onClickLeft(){
+    wx.navigateBack({
+      delta:0
+    })
+  },
+
   // 助力初始页面的基本信息
   getHelpDetail(phone) {
     console.log(`phone-->`, phone);
@@ -52,13 +58,16 @@ Page({
         return;
       }
       this.setData({
-        helpDetail: res.data.data
+        helpDetail: res.data.data,
+        activityPosterSeat:res.data.data.activityPosterSeat
       });
       console.log(`helpDetail-->`, res.data.data);
       this.data.avatarArray.length = res.data.data.helpedCount;
       this.setData({
         avatarArray: this.data.avatarArray
       })
+      res.data.data.activityEndTime = res.data.data.activityEndTime.replace(/\-/g, '/');
+      console.log(`activityEndTime-->`,res.data.data.activityEndTime);
       var endTime = new Date(res.data.data.activityEndTime);
       var startTime = new Date();
       if (endTime - startTime < 0) {
@@ -132,6 +141,7 @@ Page({
     })
     if (options.phone != undefined || options.phone != null) {
       const newPhone = JSON.parse(decodeURIComponent(options.phone))
+      wx.setStorageSync('phone', newPhone);
       this.getHelpDetail(newPhone);
       this.setData({
         phone: newPhone
@@ -146,6 +156,8 @@ Page({
         url: '../fission/index?jumpValue=1',
       })
     }
+    let newPhone = wx.getStorageSync('phone');
+    this.getHelpDetail(newPhone);
   },
 
   onShareAppMessage() {
@@ -177,7 +189,7 @@ Page({
   },
 
   onPullDownRefresh() {
-    this.sHelpDo();
+    this.onShow();
     setTimeout(() => {
       wx.stopPullDownRefresh(); //得到数据后停止下拉刷新
     }, 300)

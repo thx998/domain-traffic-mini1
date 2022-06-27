@@ -26,10 +26,7 @@ Page({
     if (e.detail.errMsg === "getPhoneNumber:ok") {
       this.getPhone(e.detail.code);
     } else {
-      wx.showToast({
-        title: "请绑定手机号！",
-        icon: "none"
-      })
+     
     }
   },
 
@@ -59,7 +56,8 @@ Page({
       }
       this.setData({
         activityDetail: res.data.data,
-        activityType: res.data.data.activityType
+        activityType: res.data.data.activityType,
+        activityPosterSeat:res.data.data.activityPosterSeat
       })
       Notify({
         message: this.data.activityDetail.activityPageTitle,
@@ -139,7 +137,7 @@ Page({
   // 跳转会员权益
   jumpVipRights() {
     wx.navigateTo({
-      url: '../vip_rights/index',
+      url: '../../vip_fission/vip_rights/index',
     })
   },
 

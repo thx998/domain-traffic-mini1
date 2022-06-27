@@ -1,31 +1,33 @@
 .newColumn{
   height: 100vh;
+  width: 100vw;
+}
+
+.newColumn1{
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 100vw;
 }
 .imageStyle{
-  width: 500rpx;
-  height: 300rpx;
+  width:100%;
   position: fixed;
-  top: 270rpx;
   border-radius: 8rpx;
 }
 
 .buttonStyle{
   position: fixed;
-  top:720rpx;
-  width: 400rpx;
+  top:1000rpx;
+  width: 700rpx;
+  height: 95rpx;
   display: flex;
   flex-direction: column;
   align-items: center !important;
   justify-content: center !important;
-  background-color: #00CC66;
+  background-color: #FF6430;
 }
 
 .textSmallStyle{
-  font-size: 35rpx;
+  font-size: 41rpx;
   color: white;
 }
 
@@ -33,15 +35,26 @@
   font-size: 48rpx;
   top:710rpx;
   position: fixed;
-  color:#00CC66;
+  color:#FF6430;
 }
 
-.vanbuttonStyle{
-  top:1000rpx;
-  position: fixed;
+.buttonStyle2{
+  top:880rpx;
+  width: 600rpx;
+  display: flex;
+  flex-direction: column;
+  align-items: center !important;
+  justify-content: center !important;
+  background-color: #FF6430;
 }
 
-.vanbuttonStyle1{
+.buttonStyle1{
   top:880rpx;
   position: fixed;
+  width: 600rpx;
+  display: flex;
+  flex-direction: column;
+  align-items: center !important;
+  justify-content: center !important;
+  background-color: #FF6430;
 }

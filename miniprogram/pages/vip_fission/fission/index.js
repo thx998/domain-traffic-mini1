@@ -1,5 +1,5 @@
 // index.js
-import Notify from '../../../miniprogram_npm/@vant/weapp/notify/notify';
+// import Notify from '../../../miniprogram_npm/@vant/weapp/notify/notify';
 const MD5 = require('js-md5');
 import timeChange from '../../../utils/timestampChange.js'
 const {
@@ -54,16 +54,17 @@ Page({
       }
       this.setData({
         activityDetail: res.data.data,
-        activityType: res.data.data.activityType
+        activityType: res.data.data.activityType,
+        activityPosterSeat:res.data.data.activityPosterSeat
       })
       console.log(res.data.data);
-      Notify({
-        message: res.data.data.activityPageTitle,
-        color: '#666666',
-        background: 'transparent',
-        duration: 0,
-        top: "55"
-      });
+      // Notify({
+      //   message: res.data.data.activityPageTitle,
+      //   color: '#666666',
+      //   background: 'transparent',
+      //   duration: 0,
+      //   top: "55"
+      // });
       if (res.data.data.activityType === 1) {
         // 判断是否需要助力按钮
         if (res.data.data.activityHelp > 0) {
@@ -173,7 +174,7 @@ Page({
   },
 
   onLoad(option) {
-    // option.activityId = "1536250486770933761"
+    // option.activityId = "1538812869938774018"
     if (option.externalUserId != undefined && option.externalUserId != null) {
       wx.reLaunch({
         url: '../../register/index',
@@ -195,7 +196,6 @@ Page({
         })
       }
     }
-
   },
 
   onShow() {

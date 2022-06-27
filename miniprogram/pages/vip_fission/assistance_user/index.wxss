@@ -1,43 +1,62 @@
 
-.newColumn{
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  width: 100vw;
+page{
+  background-color: #F5F5F5;
   overflow-y: auto;
   overflow-x: hidden;
 }
+.newColumn{
+  height: 100vh;
+  width: 100vw;
+ 
+}
+.newColumn1{
+  display: flex;
+  flex-direction: column;
+  position: relative ;
+  align-items: center;
+}
 .imageStyle{
-  width: 500rpx;
-  height: 300rpx;
-  margin-top: 120rpx;
+  width:100%;
+  height: 400rpx;
+  position: absolute;
+  top: 0;
   border-radius: 8rpx;
 }
 
+
 .smallTextStyle{
   font-size: 40rpx;
-  color: #666666;
+  color:  #FF6430;
   font-weight: 500;
   margin-top:48rpx;
 }
 
 .smallTextStyle1{
   font-size: 35rpx;
-  color: #666666;
-  font-weight: 500;
+  color: #3CA1FF;
+  font-weight: 400;
   margin-top:32rpx;
 }
+.smallColumn{
+  display: flex;
+  width: 700rpx;
+  margin-top: 40rpx;
+  flex-direction: column;
+  align-items: center;
+  background-color: #FFFFFF;
+}
+
 
 .containerNew{
-  width: 520rpx;
-  height: 520rpx;
+  width: 630rpx;
+  height: 650rpx;
   display: flex;
   flex-direction: column;
   align-items: center;
   border-radius: 8rpx;
+  /* background-color: #F5F5F5; */
   position: relative;
-  margin-top:50rpx;
+  margin-top:30rpx;
 }
 
 .smallBox{
@@ -49,7 +68,7 @@
   justify-content: center;
   position: absolute;
   top:0;
-  background-color:rgba(245, 245, 245, 1) ;
+  background-color:#E0F0FF;
 }
 .smallBox1{
   height: 100rpx;
@@ -60,18 +79,18 @@
   justify-content: center;
   position: absolute;
   bottom:0;
-  background-color:rgba(245, 245, 245, 1) ;
+  background-color:#E0F0FF;
 }
 
 .imageStyle1{
   position: absolute;
   width: 310rpx;
   height: 320rpx;
-  bottom:100rpx;
+  bottom:168rpx;
 }
 
 .textStyle{
-  font-size: 30rpx;
+  font-size: 31rpx;
   color: #666666;
 }
 
@@ -83,15 +102,31 @@
 
 .buttonStyle {
   margin-top: 56rpx;
-  width: 450rpx;
+  width: 700rpx;
+  height: 100rpx;
   display: flex;
   flex-direction: column;
   align-items: center !important;
   justify-content: center !important;
-  background-color: #00CC66;
+  background-color: #FF6430;
 }
 
+
+
 .textSmallStyle {
-  font-size: 35rpx;
+  font-size: 37rpx;
   color: white;
 }
+
+.bottomButtonStyle{
+  border-radius: 48rpx;
+  height: 70rpx;
+  display: flex;
+  border: none !important;
+  border:none;
+  flex-direction: column;
+  align-items: center !important;
+  justify-content: center !important;
+}
+
+button::after{ border: none; }

@@ -1,15 +1,18 @@
 .newColumn{
   height: 100vh;
+  width: 100vw;
+}
+
+
+.newColumn1{
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 100vw;
 }
 .imageStyle{
-  width: 500rpx;
-  height: 300rpx;
+  width:100%;
+  height: 450rpx;
   position: fixed;
-  top: 300rpx;
   border-radius: 8rpx;
 }
 .newTextRowStyle{
@@ -17,7 +20,7 @@
   flex-direction: row;
   align-items: center;
   position: fixed;
-  top:710rpx;
+  top:690rpx;
 }
 
 .newTextRowStyle1{
@@ -25,85 +28,61 @@
   flex-direction: row;
   align-items: center;
   position: fixed;
-  top:850rpx;
+  top:780rpx;
 }
 
 .smallTextStyle{
   font-size: 40rpx;
-  color: #666666;
-  font-weight: 500;
-  margin-left: 8rpx;
+  color: #7c7b7b;
+  font-weight: 400;
 }
 .smallTextStyle1{
   font-size: 35rpx;
-  color: #7c7b7b;
-  font-weight: 500;
+  color: #666666;
+  font-weight: 400;
 }
 
 .helpText{
-  font-size: 60rpx;
-  color: #EE0D23;
+  font-size: 40rpx;
+  color: #fd122a;
   font-weight: 600;
   margin-left: 8rpx;
   margin-right: 8rpx;
 }
 
-.item2 {
-  display: inline-block;
-  width: 30px;
-  height: 22px;
-  margin-right: 8rpx;
-  margin-left: 8rpx;
-  color: #fff;
-  font-size: 16px;
-  text-align: center;
-  background-color:#EE0D23;
-  border-radius: 2px;
-}
+
 .item1 {
   display: inline-block;
-  width: 30px;
-  height: 22px;
   margin-left: 8rpx;
-  color: #fff;
-  font-size: 16px;
+  color:black;
+  font-size: 20px;
   text-align: center;
-  background-color:#EE0D23;
   border-radius: 2px;
 }
 
 .textItem{
     margin-left: 8rpx;
-    color:#EE0D23 ;
-    font-size: 16px;
-    font-weight: 600;
+    color: #7c7b7b;
+    font-size: 40rpx;
+    font-weight: 400;
 }
-.item3 {
-  display: inline-block;
-  width: 30px;
-  height: 22px;
-  margin-right: 5px;
-  color: #fff;
-  font-size: 16px;
-  text-align: center;
-  background-color:#EE0D23;
-  border-radius: 2px;
-}
+
 
 
 .buttonStyle{
   position: fixed;
-  top:990rpx;
-  width: 600rpx;
+  top:1015rpx;
+  height: 100rpx;
+  width: 700rpx;
   display: flex;
   flex-direction: column;
   align-items: center !important;
   justify-content: center !important;
-  background-color: #00CC66;
+  background-color: #FF6430;
 }
 
 .textSmallStyle{
-  font-size: 35rpx;
+  font-size: 38rpx;
   color: white;
 }
 .bottomButton{
